@@ -127,7 +127,7 @@ const Login = () => {
               </div>
 
               {/* Login button */}
-              <button type="submit" className="mtBtn w-full h-11">
+              <button type="submit" className="myBtn w-full h-11">
                 Login
               </button>
             </form>

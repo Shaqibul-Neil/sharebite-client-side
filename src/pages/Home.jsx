@@ -21,7 +21,7 @@ const Home = () => {
         <div className="flex justify-center">
           <Link
             to={"/available-foods"}
-            className="bg-[#43A047] text-[#F57C00] hover:bg-[#FFE0B2] px-10 py-2"
+            className="bg-[#43A047] text-white hover:bg-[#FFE0B2] hover:text-primary px-10 py-2 rounded-lg transition-all duration-300"
           >
             {" "}
             Show All Foods

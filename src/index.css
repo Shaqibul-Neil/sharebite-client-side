@@ -32,6 +32,6 @@ Neutral Dark (text / footer / grounded look)
 👉 Use for dark text or footer backgrounds. Keeps it organic and trustworthy.
 */
 
-.mtBtn {
+.myBtn {
   @apply bg-linear-to-r from-[#F57C00] to-[#FFB74D] text-primary rounded-lg font-bold transition-all duration-300 hover:opacity-90 hover:-translate-y-0.5 cursor-pointer;
 }
