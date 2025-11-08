@@ -1,11 +1,24 @@
 import { FaUser } from "react-icons/fa";
-import { IoLogOut } from "react-icons/io5";
-import { Link } from "react-router";
+import { IoLogIn, IoLogOut } from "react-icons/io5";
+import { Link, useNavigate } from "react-router";
+import useAuth from "../../hooks/useAuth";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
+  const { user, setUser, signOutUser } = useAuth();
+  const navigate = useNavigate();
+  const handleSignOut = () => {
+    signOutUser()
+      .then(() => {
+        setUser(null);
+        navigate("/");
+        toast.success("Successfully signed Out");
+      })
+      .catch((err) => toast.error(err.message));
+  };
   return (
     <nav>
-      <div className="navbar py-0 min-h-0 z-1 shadow-sm rounded-full glass-card max-w-7xl">
+      <div className="navbar py-0 min-h-0 relative z-100">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost md:hidden">
@@ -42,7 +55,7 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="navbar-center hidden md:flex">
-          <ul className="menu menu-horizontal px-1 gap-10">
+          <ul className="menu menu-horizontal px-1">
             <li>
               <Link to={"/"}>Home</Link>
             </li>
@@ -91,18 +104,17 @@ const Navbar = () => {
                 </li>
 
                 <li>
-                  <button className="btn btn-xs text-left bg-linear-to-r from-pink-500 to-red-500 text-white">
+                  <button
+                    className="btn btn-xs text-left bg-linear-to-r from-pink-500 to-red-500 text-white"
+                    onClick={handleSignOut}
+                  >
                     <IoLogOut /> Logout
                   </button>
                 </li>
               </ul>
             </div>
           ) : (
-            <Link
-              to={"/login"}
-              className="btn rounded-full border-gray-300  btn-sm bg-linear-to-r from-pink-500 to-red-500 text-white"
-            >
-              {" "}
+            <Link to={"/login"} className="btn border-gray-300">
               <IoLogIn /> Login
             </Link>
           )}

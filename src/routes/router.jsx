@@ -6,8 +6,9 @@ import AvailableFoods from "../pages/AvailableFoods";
 import AddFoods from "../pages/AddFoods";
 import ManageMyFoods from "../pages/ManageMyFoods";
 import MyFoodRequest from "../pages/MyFoodRequest";
+import Home from "../pages/Home";
 
-export const router = createBrowserRouter([
+const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
@@ -41,9 +42,10 @@ export const router = createBrowserRouter([
         element: <Login />,
       },
       {
-        path: "/auth/register",
+        path: "/register",
         element: <Register />,
       },
     ],
   },
 ]);
+export default router;
