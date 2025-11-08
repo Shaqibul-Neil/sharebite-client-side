@@ -26,8 +26,6 @@ const Register = () => {
     e.preventDefault();
     const email = e.target.email.value.trim();
     const password = e.target.password.value.trim();
-    const displayName = e.target.name.value || "";
-    const photoURL = e.target.photo.value || "";
 
     //error reset
     setSignUpError({ email: "", password: "" });
@@ -69,10 +67,10 @@ const Register = () => {
         <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-10 py-12">
           {/* Left side: welcoming text */}
           <div className="max-w-lg text-center space-y-8 lg:text-left drop-shadow-lg">
-            <h1 className="md:text-5xl text-3xl font-extrabold text-primary">
+            <h1 className="md:text-5xl text-3xl font-extrabold text-accent">
               Join ShareBite Today
             </h1>
-            <p className="md:text-lg text-gray-600">
+            <p className="md:text-lg text-primary">
               Be part of a community that shares food, spreads love, and reduces
               waste. Give your surplus meals a new purpose — because every bite
               counts. Start your journey with ShareBite and make a real impact,
@@ -82,14 +80,14 @@ const Register = () => {
 
           {/* Right side: Signup card */}
           <div className="w-full max-w-md backdrop-blur-2xl space-y-8 bg-white/15 border border-white/25 shadow-2xl rounded-2xl p-8">
-            <h2 className="text-2xl font-semibold text-center text-primary">
+            <h2 className="text-2xl font-semibold text-center text-accent">
               Create Account
             </h2>
 
             <form className="space-y-5" onSubmit={handleSignUp}>
               {/* Name */}
               <div className="relative mb-7">
-                <label className="block text-gray-600 mb-1 ">Full Name</label>
+                <label className="block text-primary mb-1 ">Full Name</label>
                 <input
                   type="text"
                   name="name"
@@ -100,7 +98,7 @@ const Register = () => {
 
               {/* Photo URL */}
               <div className="relative mb-7">
-                <label className="block text-gray-600 mb-1 ">Photo URL</label>
+                <label className="block text-primary mb-1 ">Photo URL</label>
                 <input
                   type="text"
                   name="photo"
@@ -111,7 +109,7 @@ const Register = () => {
 
               {/* Email */}
               <div className="relative mb-7">
-                <label className="block text-gray-600 mb-1 ">Email *</label>
+                <label className="block text-primary mb-1 ">Email *</label>
                 <input
                   type="email"
                   name="email"
@@ -129,7 +127,7 @@ const Register = () => {
 
               {/* Password */}
               <div className="relative mb-7">
-                <label className="block text-gray-600 mb-1 ">Password *</label>
+                <label className="block text-primary mb-1 ">Password *</label>
                 <input
                   type={showPassword ? "text" : "password"}
                   name="password"
@@ -166,7 +164,7 @@ const Register = () => {
             {/* Divider */}
             <div className="flex items-center justify-center gap-2 my-3">
               <div className="h-px w-16 bg-gray-400"></div>
-              <span className="text-sm text-gray-600">or</span>
+              <span className="text-sm text-primary">or</span>
               <div className="h-px w-16 bg-gray-400"></div>
             </div>
 

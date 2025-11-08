@@ -8,14 +8,17 @@ import ManageMyFoods from "../pages/ManageMyFoods";
 import MyFoodRequest from "../pages/MyFoodRequest";
 import Home from "../pages/Home";
 import PrivateRoutes from "./PrivateRoutes";
+import FoodDetails from "../pages/FoodDetails";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    hydrateFallbackElement: <p>Loading</p>,
     children: [
       {
         path: "/",
+        loader: () => fetch("http://localhost:5000/food-quantity"),
         element: <Home />,
       },
       {
@@ -31,10 +34,10 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/available-foods",
+        path: "/food-details/:id",
         element: (
           <PrivateRoutes>
-            <AvailableFoods />
+            <FoodDetails />
           </PrivateRoutes>
         ),
       },
