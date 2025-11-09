@@ -80,7 +80,7 @@ const AvailableFoods = () => {
         {availableFoods.length === 0 ? (
           <EmptySearch />
         ) : (
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-3">
             {availableFoods.map((food) => (
               <FoodCard food={food} key={food._id} />
             ))}

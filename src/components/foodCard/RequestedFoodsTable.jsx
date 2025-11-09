@@ -38,7 +38,7 @@ const RequestedFoodsTable = ({ foodInfo }) => {
                   <td>
                     <div className="flex items-center gap-3">
                       <div className="avatar">
-                        <div className="mask mask-squircle h-12 w-12">
+                        <div className="mask h-12 w-12 rounded-lg">
                           <img
                             src={request?.requestor_image}
                             alt={request?.requestor_name}

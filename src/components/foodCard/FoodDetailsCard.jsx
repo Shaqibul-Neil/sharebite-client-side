@@ -24,7 +24,7 @@ const FoodDetailsCard = ({ foodInfo }) => {
           </figure>
 
           {/* Food Description */}
-          <div className="bg-white p-6 rounded-xl shadow-md space-y-4 border-l-4 border-accent">
+          <div className="bg-white p-6 rounded-xl shadow-md space-y-4">
             <h3 className="text-xl font-bold text-accent border-b pb-2">
               Food Description
             </h3>
