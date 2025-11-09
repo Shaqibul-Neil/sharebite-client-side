@@ -9,6 +9,7 @@ import MyFoodRequest from "../pages/MyFoodRequest";
 import Home from "../pages/Home";
 import PrivateRoutes from "./PrivateRoutes";
 import FoodDetails from "../pages/FoodDetails";
+import UpdateMyFood from "../pages/UpdateMyFood";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoutes>
             <ManageMyFoods />
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/update-food/:id",
+        element: (
+          <PrivateRoutes>
+            <UpdateMyFood />
           </PrivateRoutes>
         ),
       },

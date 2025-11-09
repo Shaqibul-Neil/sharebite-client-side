@@ -9,9 +9,8 @@ import RequestedFoodsTable from "../components/foodCard/RequestedFoodsTable";
 
 const FoodDetails = () => {
   const { id } = useParams();
-  const { user } = useAuth();
+  const { user, refresh, setRefresh } = useAuth();
   const [food, setFood] = useState({});
-  const [refresh, setRefresh] = useState(false);
   const [loading, setLoading] = useState(true);
   const [requestedFoods, setRequestedFoods] = useState([]);
   const requestModalRef = useRef();

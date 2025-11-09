@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import useAuth from "../hooks/useAuth";
 import useAxios from "../hooks/useAxios";
 import Container from "../components/container/Container";
+import { useNavigate } from "react-router";
 
 const ManageMyFoods = () => {
   const { user } = useAuth();
   const axiosInstance = useAxios();
   const [myFoods, setMyFoods] = useState([]);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     axiosInstance
@@ -84,7 +86,14 @@ const ManageMyFoods = () => {
                       )}
                     </td>
                     <td>
-                      <button className="btn btn-outline btn-warning btn-xs mr-2">
+                      <button
+                        className="btn btn-outline btn-warning btn-xs mr-2"
+                        onClick={() =>
+                          navigate(`/update-food/${food._id}`, {
+                            state: { food },
+                          })
+                        }
+                      >
                         Update
                       </button>
                       <button className="btn btn-outline btn-error btn-xs">

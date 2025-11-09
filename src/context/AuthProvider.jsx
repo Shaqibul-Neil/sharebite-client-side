@@ -16,6 +16,8 @@ const googleProvider = new GoogleAuthProvider();
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [userLoading, setUserLoading] = useState(true);
+  const [refresh, setRefresh] = useState(false);
+
   const { allFoodData, foodLoading, foodError } = useFood();
 
   //create user with email password
@@ -63,6 +65,8 @@ const AuthProvider = ({ children }) => {
     allFoodData,
     foodLoading,
     foodError,
+    refresh,
+    setRefresh,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
