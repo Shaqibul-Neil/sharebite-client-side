@@ -39,10 +39,6 @@ const FoodDetailsCard = ({ foodInfo }) => {
                 <span className="text-red-500 font-medium">{filteredDate}</span>
               </p>
               <p>
-                <span className="font-semibold text-primary">Spice Level:</span>{" "}
-                {food.spice_level || "Unknown"}
-              </p>
-              <p>
                 <span className="font-semibold text-primary">Notes:</span>{" "}
                 {food.additional_notes || "No notes provided"}
               </p>
@@ -86,10 +82,6 @@ const FoodDetailsCard = ({ foodInfo }) => {
               <div className="space-y-2">
                 <p className="text-sm text-primary">
                   <span className="font-semibold">Food ID :</span> {food?._id}
-                </p>
-                <p className="text-sm text-primary">
-                  <span className="font-semibold">Serving Time :</span>{" "}
-                  {food?.serving_time}
                 </p>
               </div>
 
