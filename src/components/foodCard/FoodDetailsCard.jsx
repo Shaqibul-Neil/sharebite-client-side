@@ -24,7 +24,7 @@ const FoodDetailsCard = ({ foodInfo }) => {
           </figure>
 
           {/* Food Description */}
-          <div className="bg-white p-6 rounded-xl shadow-md space-y-4">
+          <div className="bg-white p-6 rounded-xl shadow-md space-y-4 border-l-4 border-accent">
             <h3 className="text-xl font-bold text-accent border-b pb-2">
               Food Description
             </h3>
@@ -80,7 +80,7 @@ const FoodDetailsCard = ({ foodInfo }) => {
               </span>
             </p>
           </div>
-          <div className="flex items-center md:gap-2 md:flex-row flex-col">
+          <div className="flex items-center md:gap-2 md:flex-row flex-col border-l-4 border-accent rounded-lg">
             <div className="bg-white p-6 rounded-xl shadow-md space-y-4 md:w-1/2">
               <h3 className="text-lg font-bold text-accent">Food Details</h3>
               <div className="space-y-2">
@@ -109,7 +109,7 @@ const FoodDetailsCard = ({ foodInfo }) => {
             </div>
 
             {/* Donor Info */}
-            <div className="bg-white p-6 rounded-xl shadow-md space-y-4 md:w-1/2 mt-4 md:mt-0">
+            <div className="bg-white p-6 rounded-lg shadow-md space-y-4 md:w-1/2 mt-4 md:mt-0 border-l-4 border-accent">
               <h3 className="text-lg font-bold text-accent mb-2">
                 Donor Information
               </h3>
