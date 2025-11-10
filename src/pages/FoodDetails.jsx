@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react";
-import useAxios from "../hooks/useAxios";
-import { Link, useParams } from "react-router";
+import { useParams } from "react-router";
 import useAuth from "../hooks/useAuth";
 import Container from "../components/container/Container";
 import RequestFoodModal from "../components/modal/RequestFoodModal";
 import FoodDetailsCard from "../components/foodCard/FoodDetailsCard";
 import RequestedFoodsTable from "../components/foodCard/RequestedFoodsTable";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const FoodDetails = () => {
   const { id } = useParams();
@@ -14,20 +14,20 @@ const FoodDetails = () => {
   const [loading, setLoading] = useState(true);
   const [requestedFoods, setRequestedFoods] = useState([]);
   const requestModalRef = useRef();
-  const axiosInstance = useAxios();
+  const axiosSecureInstance = useAxiosSecure();
 
   useEffect(() => {
-    axiosInstance.get(`/food/${id}`).then((data) => {
+    axiosSecureInstance.get(`/food/${id}`).then((data) => {
       setFood(data.data.result);
       setLoading(false);
     });
-  }, [axiosInstance, id, refresh]);
+  }, [axiosSecureInstance, id, refresh]);
 
   useEffect(() => {
-    axiosInstance.get(`/requests/food/${id}`).then((data) => {
+    axiosSecureInstance.get(`/requests/food/${id}`).then((data) => {
       setRequestedFoods(data.data);
     });
-  }, [axiosInstance, id, refresh]);
+  }, [axiosSecureInstance, id, refresh]);
 
   if (loading) return <p>Loading......</p>;
 

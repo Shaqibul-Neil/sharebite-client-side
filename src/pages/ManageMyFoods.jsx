@@ -1,25 +1,23 @@
 import { useEffect, useState } from "react";
 import useAuth from "../hooks/useAuth";
-import useAxios from "../hooks/useAxios";
 import Container from "../components/container/Container";
 import { useNavigate } from "react-router";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const ManageMyFoods = () => {
   const { user, refresh, setRefresh } = useAuth();
-  const axiosInstance = useAxios();
+  const axiosSecureInstance = useAxiosSecure();
   const [myFoods, setMyFoods] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
-    axiosInstance
-      .get(`http://localhost:5000/my-foods?email=${user.email}`)
-      .then((data) => {
-        setMyFoods(data.data);
-        setLoading(false);
-      });
-  }, [axiosInstance, user, refresh]);
+    axiosSecureInstance.get(`/my-foods?email=${user.email}`).then((data) => {
+      setMyFoods(data.data);
+      setLoading(false);
+    });
+  }, [axiosSecureInstance, user, refresh]);
 
   if (loading) return <p className="text-center py-20">Loading...</p>;
 

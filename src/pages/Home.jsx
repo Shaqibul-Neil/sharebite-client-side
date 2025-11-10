@@ -2,6 +2,7 @@ import { Link, useLoaderData } from "react-router";
 import Banner from "../components/banner/Banner";
 import Container from "../components/container/Container";
 import FoodCard from "../components/foodCard/FoodCard";
+import FancyCard from "./FancyCard";
 
 const Home = () => {
   const foodsData = useLoaderData();
@@ -28,6 +29,7 @@ const Home = () => {
             Show All Foods
           </Link>
         </div>
+        <FancyCard />
       </Container>
     </div>
   );
