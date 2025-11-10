@@ -3,9 +3,10 @@ import useAuth from "../hooks/useAuth";
 import useAxios from "../hooks/useAxios";
 import Container from "../components/container/Container";
 import { useNavigate } from "react-router";
+import Swal from "sweetalert2";
 
 const ManageMyFoods = () => {
-  const { user } = useAuth();
+  const { user, refresh, setRefresh } = useAuth();
   const axiosInstance = useAxios();
   const [myFoods, setMyFoods] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -18,9 +19,53 @@ const ManageMyFoods = () => {
         setMyFoods(data.data);
         setLoading(false);
       });
-  }, [axiosInstance, user]);
+  }, [axiosInstance, user, refresh]);
 
   if (loading) return <p className="text-center py-20">Loading...</p>;
+
+  const handleFoodDelete = (id) => {
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: "btn btn-success ml-2",
+        cancelButton: "btn btn-error",
+      },
+      buttonsStyling: false,
+    });
+    swalWithBootstrapButtons
+      .fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Yes, delete it!",
+        cancelButtonText: "No, cancel!",
+        reverseButtons: true,
+      })
+      .then((result) => {
+        if (result.isConfirmed) {
+          axiosInstance.delete(`/my-foods/${id}`).then((data) => {
+            console.log(data);
+            if (data.data.result.deletedCount) {
+              swalWithBootstrapButtons.fire({
+                title: "Deleted!",
+                text: "Your food has been deleted.",
+                icon: "success",
+              });
+              setRefresh(!refresh);
+            }
+          });
+        } else if (
+          /* Read more about handling dismissals below */
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+          swalWithBootstrapButtons.fire({
+            title: "Cancelled",
+            text: "Your food information is safe",
+            icon: "error",
+          });
+        }
+      });
+  };
 
   return (
     <div className="bg-[#E9E9E9] min-h-screen py-20">
@@ -45,70 +90,73 @@ const ManageMyFoods = () => {
 
           {/* ---------- RIGHT SIDE / TABLE ---------- */}
           <div className="lg:col-span-2 overflow-x-auto bg-white p-6 rounded-lg shadow-md">
-            <table className="table w-full">
-              <thead>
-                <tr>
-                  <th>SL</th>
-                  <th>Food Name</th>
-                  <th>Food Quantity</th>
-                  <th>Status</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-
-              <tbody>
-                {myFoods.map((food, index) => (
-                  <tr key={food._id}>
-                    <td>{index + 1}</td>
-                    <td className="flex items-center gap-3">
-                      <div className="avatar">
-                        <div className="mask rounded-lg h-12 w-12">
-                          <img src={food?.food_image} alt={food?.food_name} />
-                        </div>
-                      </div>
-                      <div className="font-bold">{food?.food_name}</div>
-                    </td>
-                    <td>
-                      {food?.food_quantity < 10
-                        ? `0${food.food_quantity}`
-                        : food.food_quantity}{" "}
-                      Servings
-                    </td>
-                    <td>
-                      {food?.food_status === "Available" ? (
-                        <span className="badge badge-success text-xs font-semibold badge-outline">
-                          {food.food_status}
-                        </span>
-                      ) : (
-                        <span className="badge badge-[#3B82F6] text-xs font-semibold badge-outline">
-                          {food.food_status}
-                        </span>
-                      )}
-                    </td>
-                    <td>
-                      <button
-                        className="btn btn-outline btn-warning btn-xs mr-2"
-                        onClick={() =>
-                          navigate(`/update-food/${food._id}`, {
-                            state: { food },
-                          })
-                        }
-                      >
-                        Update
-                      </button>
-                      <button className="btn btn-outline btn-error btn-xs">
-                        Delete
-                      </button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-
-            {myFoods.length === 0 && (
+            {myFoods.length === 0 ? (
               <p className="text-center py-6 text-gray-500">
                 No foods donated yet.
               </p>
+            ) : (
+              <table className="table w-full">
+                <thead>
+                  <tr>
+                    <th>SL</th>
+                    <th>Food Name</th>
+                    <th>Food Quantity</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  {myFoods.map((food, index) => (
+                    <tr key={food._id}>
+                      <td>{index + 1}</td>
+                      <td className="flex items-center gap-3">
+                        <div className="avatar">
+                          <div className="mask rounded-lg h-12 w-12">
+                            <img src={food?.food_image} alt={food?.food_name} />
+                          </div>
+                        </div>
+                        <div className="font-bold">{food?.food_name}</div>
+                      </td>
+                      <td>
+                        {food?.food_quantity < 10
+                          ? `0${food.food_quantity}`
+                          : food.food_quantity}{" "}
+                        Servings
+                      </td>
+                      <td>
+                        {food?.food_status === "Available" ? (
+                          <span className="badge badge-success text-xs font-semibold badge-outline">
+                            {food.food_status}
+                          </span>
+                        ) : (
+                          <span className="badge badge-[#3B82F6] text-xs font-semibold badge-outline">
+                            {food.food_status}
+                          </span>
+                        )}
+                      </td>
+                      <td>
+                        <button
+                          className="btn btn-outline btn-warning btn-xs mr-2"
+                          onClick={() =>
+                            navigate(`/update-food/${food._id}`, {
+                              state: { food },
+                            })
+                          }
+                        >
+                          Update
+                        </button>
+                        <button
+                          className="btn btn-outline btn-error btn-xs"
+                          onClick={() => handleFoodDelete(food._id)}
+                        >
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             )}
           </div>
         </div>
