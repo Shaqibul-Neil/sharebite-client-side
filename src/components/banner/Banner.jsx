@@ -1,4 +1,3 @@
-import { Link } from "react-router";
 import heroVideo from "../../assets/donate.mp4"; // video path
 import Container from "../container/Container";
 import MyButton from "../button/MyButton";
@@ -30,7 +29,7 @@ const Banner = () => {
           </p>
           <MyButton
             to={"/available-foods"}
-            className={"py-3 bg-warning hover:bg-warning border-warning"}
+            className={"py-3 px-6 bg-warning hover:bg-warning border-warning"}
           >
             {" "}
             Search Foods

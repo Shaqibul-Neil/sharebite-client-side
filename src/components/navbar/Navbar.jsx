@@ -1,10 +1,10 @@
-import { IoLogIn } from "react-icons/io5";
 import { Link, useNavigate } from "react-router";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
 import MyLinks from "../mylinks/MyLinks";
 import {
   HandHelping,
+  HeartHandshake,
   LogIn,
   LogOut,
   PackageSearch,
@@ -80,12 +80,19 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <Link to={"/"} className="flex items-center gap-1 text-xl font-bold">
-            ShareBite
+          <Link
+            to={"/"}
+            className="flex items-center gap-1 md:text-2xl text-xl font-bold"
+          >
+            <HeartHandshake size={24} className="text-warning" />
+            <span className="text-accent">
+              Share
+              <span className="text-amber-500 top-1 relative">Bite</span>
+            </span>
           </Link>
         </div>
         <div className="navbar-center hidden md:flex">
-          <ul className="flex items-center gap-6">
+          <ul className="flex items-center gap-6 text-accent">
             <li>
               <MyLinks
                 to={"/"}
@@ -180,10 +187,14 @@ const Navbar = () => {
             <MyButton
               to={"/login"}
               className={
-                "py-1 bg-amber-500 hover:bg-amber-500 border-amber-500"
+                "md:py-2 py-1 px-4 bg-amber-500 hover:bg-amber-500 border-amber-500 "
               }
             >
-              Login
+              {" "}
+              <span className="flex items-center gap-1">
+                <LogIn size={18} />
+                <span>Login</span>
+              </span>
             </MyButton>
           )}
         </div>
