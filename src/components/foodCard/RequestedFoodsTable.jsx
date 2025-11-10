@@ -1,7 +1,34 @@
+import toast from "react-hot-toast";
+import useAxios from "../../hooks/useAxios";
 import Container from "../container/Container";
 
 const RequestedFoodsTable = ({ foodInfo }) => {
-  const { requestedFoods, setRefresh, conditionalClass, food } = foodInfo;
+  const { requestedFoods, refresh, setRefresh, conditionalClass, food } =
+    foodInfo;
+  const axiosInstance = useAxios();
+  const handleAcceptRequest = (foodId, reqId) => {
+    axiosInstance
+      .patch(`/requests/accept/${reqId}`, { foodId })
+      .then((data) => {
+        if (data.data.success) {
+          toast.success(`You've accepted the food donation request`);
+          setRefresh(!refresh);
+        }
+      })
+      .catch((err) => toast.error(err.message));
+  };
+  const handleRejectRequest = (reqId) => {
+    axiosInstance
+      .patch(`/requests/reject/${reqId}`)
+      .then((data) => {
+        console.log(data);
+        if (data.data.success) {
+          toast.success(`You've rejected the food donation request`);
+          setRefresh(!refresh);
+        }
+      })
+      .catch((err) => toast.error(err.message));
+  };
 
   return (
     <Container>
@@ -58,7 +85,7 @@ const RequestedFoodsTable = ({ foodInfo }) => {
                   <td className="text-primary">{request?.requestor_email}</td>
                   <td>
                     <p
-                      className={`badge primary text-xs font-semibold badge-outline ${conditionalClass(
+                      className={`badge primary text-xs font-semibold text-primary ${conditionalClass(
                         request?.status
                       )}`}
                     >
@@ -68,11 +95,21 @@ const RequestedFoodsTable = ({ foodInfo }) => {
 
                   <td>
                     <div className="flex gap-2 items-center">
-                      <button className="btn btn-outline btn-success btn-xs">
-                        Accept Offer
+                      <button
+                        className="btn btn-outline btn-success btn-xs"
+                        onClick={() =>
+                          handleAcceptRequest(food._id, request._id)
+                        }
+                      >
+                        Accept Request
                       </button>
-                      <button className="btn btn-outline btn-error btn-xs">
-                        Reject Offer
+                      <button
+                        className="btn btn-outline btn-error btn-xs"
+                        onClick={() => {
+                          handleRejectRequest(request._id);
+                        }}
+                      >
+                        Reject Request
                       </button>
                     </div>
                   </td>

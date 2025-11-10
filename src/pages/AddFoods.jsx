@@ -33,6 +33,7 @@ const AddFoods = () => {
       .then((data) => {
         if (data.data.result.insertedId) {
           toast.success(`Congratulations! You've shared another bite`);
+          e.target.reset();
         }
       })
       .catch((err) => toast.error(err.message));

@@ -76,13 +76,13 @@ const ManageMyFoods = () => {
             <h2 className="text-3xl font-bold text-accent">
               My Food Donations
             </h2>
-            <p className="text-gray-600 leading-relaxed">
+            <p className="text-primary leading-relaxed">
               Here you can see all the foods you've donated. You can update or
               remove any item you shared. Keeping track of your contributions
               helps you manage them efficiently and ensures food reaches those
               in need.
             </p>
-            <p className="text-gray-600 leading-relaxed">
+            <p className="text-primary leading-relaxed">
               Make sure to keep your food details up to date. Expired or already
               claimed items should be removed to avoid confusion.
             </p>

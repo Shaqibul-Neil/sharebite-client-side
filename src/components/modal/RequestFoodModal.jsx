@@ -41,6 +41,7 @@ const RequestFoodModal = ({ foodInfo }) => {
         const totalRequest = [...requestedFoods, newRequest];
         setRequestedFoods(totalRequest);
         setRefresh(!refresh);
+        e.target.reset();
       }
     });
   };

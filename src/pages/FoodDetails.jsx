@@ -32,10 +32,10 @@ const FoodDetails = () => {
   if (loading) return <p>Loading......</p>;
 
   const conditionalClass = (status) => {
-    if (status === "Available") return "badge-success";
+    if (status === "Available" || status === "Accepted") return "badge-success";
     if (status === "Pending") return "badge-warning";
     if (status === "Rejected") return "badge-error";
-    if (status === "Donated") return "badge-[#3B82F6]";
+    if (status === "Donated") return "badge-info";
   };
 
   const foodInfo = {
