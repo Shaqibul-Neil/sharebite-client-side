@@ -1,13 +1,13 @@
 import toast from "react-hot-toast";
-import useAxios from "../../hooks/useAxios";
 import Container from "../container/Container";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const RequestedFoodsTable = ({ foodInfo }) => {
   const { requestedFoods, refresh, setRefresh, conditionalClass, food } =
     foodInfo;
-  const axiosInstance = useAxios();
+  const axiosSecureInstance = useAxiosSecure();
   const handleAcceptRequest = (foodId, reqId) => {
-    axiosInstance
+    axiosSecureInstance
       .patch(`/requests/accept/${reqId}`, { foodId })
       .then((data) => {
         if (data.data.success) {
@@ -17,9 +17,9 @@ const RequestedFoodsTable = ({ foodInfo }) => {
       })
       .catch((err) => toast.error(err.message));
   };
-  const handleRejectRequest = (reqId) => {
-    axiosInstance
-      .patch(`/requests/reject/${reqId}`)
+  const handleRejectRequest = (reqId, foodId) => {
+    axiosSecureInstance
+      .patch(`/requests/reject/${reqId}`, { foodId })
       .then((data) => {
         console.log(data);
         if (data.data.success) {
@@ -110,7 +110,7 @@ const RequestedFoodsTable = ({ foodInfo }) => {
                       <button
                         className="btn btn-outline btn-error btn-xs"
                         onClick={() => {
-                          handleRejectRequest(request._id);
+                          handleRejectRequest(food._id, request._id);
                         }}
                         disabled={
                           request.status === "Accepted" ||

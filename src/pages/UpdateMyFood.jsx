@@ -4,13 +4,13 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Container from "../components/container/Container";
 import { useLocation } from "react-router";
-import useAxios from "../hooks/useAxios";
 import toast from "react-hot-toast";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const UpdateMyFood = () => {
   const { user, refresh, setRefresh } = useAuth();
   const [expireDate, setExpireDate] = useState(null);
-  const axiosInstance = useAxios();
+  const axiosSecureInstance = useAxiosSecure();
   const location = useLocation();
   const { food } = location?.state || {};
 
@@ -31,7 +31,7 @@ const UpdateMyFood = () => {
       additional_notes: e.target.additional_notes.value,
       food_status: "Available",
     };
-    axiosInstance
+    axiosSecureInstance
       .put(`/update-food/${food._id}`, updateFood)
       .then(() => {
         toast.success("Your food Information has been updated");

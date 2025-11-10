@@ -41,7 +41,7 @@ const ManageMyFoods = () => {
       })
       .then((result) => {
         if (result.isConfirmed) {
-          axiosInstance.delete(`/my-foods/${id}`).then((data) => {
+          axiosSecureInstance.delete(`/my-foods/${id}`).then((data) => {
             console.log(data);
             if (data.data.result.deletedCount) {
               swalWithBootstrapButtons.fire({

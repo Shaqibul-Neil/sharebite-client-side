@@ -1,21 +1,21 @@
 import { useEffect, useState } from "react";
-import useAxios from "../hooks/useAxios";
 import useAuth from "../hooks/useAuth";
 import Container from "../components/container/Container";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const MyFoodRequest = () => {
   const { user, allFoodData, refresh, setRefresh } = useAuth();
-  const axiosInstance = useAxios();
+  const axiosSecureInstance = useAxiosSecure();
   const [myRequests, setMyRequests] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axiosInstance.get(`/my-requests?email=${user?.email}`).then((res) => {
+    axiosSecureInstance.get(`/my-requests?email=${user?.email}`).then((res) => {
       setMyRequests(res.data);
       setLoading(false);
     });
-  }, [axiosInstance, user, refresh]);
+  }, [axiosSecureInstance, user, refresh]);
 
   const handleReqDelete = (id) => {
     const swalWithBootstrapButtons = Swal.mixin({
@@ -37,7 +37,7 @@ const MyFoodRequest = () => {
       })
       .then((result) => {
         if (result.isConfirmed) {
-          axiosInstance.delete(`/my-requests/${id}`).then((data) => {
+          axiosSecureInstance.delete(`/my-requests/${id}`).then((data) => {
             console.log(data);
             if (data.data.result.deletedCount) {
               swalWithBootstrapButtons.fire({

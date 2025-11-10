@@ -1,5 +1,5 @@
 import Swal from "sweetalert2";
-import useAxios from "../../hooks/useAxios";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const RequestFoodModal = ({ foodInfo }) => {
   const {
@@ -11,10 +11,9 @@ const RequestFoodModal = ({ foodInfo }) => {
     setRefresh,
     refresh,
   } = foodInfo;
-  const axiosInstance = useAxios();
+  const axiosSecureInstance = useAxiosSecure();
   const handleFoodRequest = (e) => {
     e.preventDefault();
-    e.preventDefault;
     const name = e.target.name.value;
     const email = e.target.email.value;
     const image = e.target.image.value;
@@ -27,7 +26,7 @@ const RequestFoodModal = ({ foodInfo }) => {
       requestor_image: image,
       status: "Pending",
     };
-    axiosInstance.post("/requests", newRequest).then((data) => {
+    axiosSecureInstance.post("/requests", newRequest).then((data) => {
       if (data.data?.result.insertedId) {
         requestModalRef.current.close();
         Swal.fire({

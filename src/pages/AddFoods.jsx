@@ -3,13 +3,13 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useState } from "react";
 import useAuth from "../hooks/useAuth";
-import useAxios from "../hooks/useAxios";
 import toast from "react-hot-toast";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const AddFoods = () => {
   const [expireDate, setExpireDate] = useState(null);
   const { user } = useAuth();
-  const axiosInstance = useAxios();
+  const axiosSecureInstance = useAxiosSecure();
 
   const handleAddFood = (e) => {
     e.preventDefault();
@@ -28,7 +28,7 @@ const AddFoods = () => {
       additional_notes: e.target.additional_notes.value,
       food_status: "Available",
     };
-    axiosInstance
+    axiosSecureInstance
       .post("/foods", newFood)
       .then((data) => {
         if (data.data.result.insertedId) {
