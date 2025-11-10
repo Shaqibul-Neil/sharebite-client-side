@@ -56,7 +56,9 @@ const FoodDetails = () => {
         {/* request modal */}
         <RequestFoodModal foodInfo={foodInfo} />
       </Container>
-      <RequestedFoodsTable foodInfo={foodInfo} />
+      {user?.email === food.donator.email && (
+        <RequestedFoodsTable foodInfo={foodInfo} />
+      )}
     </div>
   );
 };

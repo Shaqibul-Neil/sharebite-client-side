@@ -100,6 +100,10 @@ const RequestedFoodsTable = ({ foodInfo }) => {
                         onClick={() =>
                           handleAcceptRequest(food._id, request._id)
                         }
+                        disabled={
+                          request.status === "Accepted" ||
+                          request.status === "Rejected"
+                        }
                       >
                         Accept Request
                       </button>
@@ -108,6 +112,10 @@ const RequestedFoodsTable = ({ foodInfo }) => {
                         onClick={() => {
                           handleRejectRequest(request._id);
                         }}
+                        disabled={
+                          request.status === "Accepted" ||
+                          request.status === "Rejected"
+                        }
                       >
                         Reject Request
                       </button>

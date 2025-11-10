@@ -130,7 +130,7 @@ const ManageMyFoods = () => {
                             {food.food_status}
                           </span>
                         ) : (
-                          <span className="badge badge-[#3B82F6] text-xs font-semibold badge-outline">
+                          <span className="badge badge-info text-xs font-semibold badge-outline">
                             {food.food_status}
                           </span>
                         )}
@@ -143,6 +143,7 @@ const ManageMyFoods = () => {
                               state: { food },
                             })
                           }
+                          disabled={food.food_status === "Donated"}
                         >
                           Update
                         </button>
