@@ -8,7 +8,7 @@ const FoodCardSkeleton = ({ count = 6 }) => {
           style={{ width: "24rem" }}
         >
           {/* Image Placeholder */}
-          <div className="h-56 bg-gray-200 w-full rounded-t-md"></div>
+          <div className="h-56 bg-gray-300 w-full rounded-t-md"></div>
 
           {/* Card Body Placeholder */}
           <div className="card-body space-y-4 p-4">

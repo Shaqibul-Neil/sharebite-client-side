@@ -7,8 +7,11 @@ import About from "../components/about/About";
 import HowItWorks from "../components/how steps/HowItWorks";
 import Testimonials from "../components/testimonials/Testimonials";
 import CommunityStats from "../components/community/CommunityStats";
+import useAuth from "../hooks/useAuth";
+import FoodCardSkeleton from "../components/others/FoodCardSkeleton";
 
 const Home = () => {
+  const { foodLoading } = useAuth();
   const foodsData = useLoaderData();
   return (
     <div>
@@ -40,13 +43,17 @@ const Home = () => {
             </p>
           </div>
           <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-3 my-10">
-            {foodsData.map((food, i) => (
-              <FoodCard
-                food={food}
-                key={food._id}
-                aosAnimation={i % 2 === 0 ? "zoom-in-up" : "zoom-in-down"}
-              />
-            ))}
+            {foodLoading ? (
+              <FoodCardSkeleton />
+            ) : (
+              foodsData.map((food, i) => (
+                <FoodCard
+                  food={food}
+                  key={food._id}
+                  aosAnimation={i % 2 === 0 ? "zoom-in-up" : "zoom-in-down"}
+                />
+              ))
+            )}
           </div>
           <div className="flex justify-center mt-6">
             <MyButton

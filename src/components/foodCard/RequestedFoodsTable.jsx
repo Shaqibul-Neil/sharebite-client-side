@@ -20,7 +20,7 @@ const RequestedFoodsTable = ({ foodInfo }) => {
       .catch((err) => toast.error(err.message));
   };
 
-  const handleRejectRequest = (reqId, foodId) => {
+  const handleRejectRequest = (foodId, reqId) => {
     axiosSecureInstance
       .patch(`/requests/reject/${reqId}`, { foodId })
       .then((data) => {

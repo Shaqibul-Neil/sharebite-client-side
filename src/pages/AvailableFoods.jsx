@@ -10,21 +10,20 @@ import FoodCardSkeleton from "../components/others/FoodCardSkeleton";
 const AvailableFoods = () => {
   const [availableFoods, setAvailableFoods] = useState([]);
   const [displayedFoods, setDisplayedFoods] = useState([]);
-  const [loading, setLoading] = useState(true); // only initial fetch
-  const [isSearching, setIsSearching] = useState(false); // search button text
+  const [loading, setLoading] = useState(true);
+  const [isSearching, setIsSearching] = useState(false);
   const { foodError } = useAuth();
   const axiosInstance = useAxios();
 
   // Initial fetch
   useEffect(() => {
-    axiosInstance
-      .get("/available-foods")
-      .then((data) => {
+    axiosInstance.get("/available-foods").then((data) => {
+      setTimeout(() => {
         setAvailableFoods(data.data);
-        setDisplayedFoods(data.data);
-      })
-      .catch(console.error)
-      .finally(() => setLoading(false));
+        setLoading(false);
+        //setDisplayedFoods(data.data);
+      }, 1500);
+    });
   }, [axiosInstance]);
 
   const handleSearchSubmit = (e) => {
@@ -58,7 +57,7 @@ const AvailableFoods = () => {
           select, and enjoy nutritious food while supporting local food sharing.
         </p>
 
-        <form className="mb-5 text-center" onSubmit={handleSearchSubmit}>
+        <form className="mb-16 text-center" onSubmit={handleSearchSubmit}>
           <div className="relative md:w-80 w-72 mx-auto">
             <input
               type="search"
@@ -90,11 +89,9 @@ const AvailableFoods = () => {
 
         {loading ? (
           <FoodCardSkeleton count={9} />
-        ) : displayedFoods.length === 0 ? (
-          <EmptySearch />
         ) : (
           <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-3">
-            {displayedFoods.map((food) => (
+            {availableFoods.map((food) => (
               <FoodCard food={food} key={food._id} />
             ))}
           </div>
