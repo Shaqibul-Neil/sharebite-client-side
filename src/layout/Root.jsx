@@ -4,6 +4,7 @@ import Container from "../components/container/Container";
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Footer from "../components/footer/Footer";
 
 const Root = () => {
   useEffect(() => {
@@ -24,7 +25,9 @@ const Root = () => {
       <main className="flex-1">
         <Outlet />
       </main>
-      <footer></footer>
+      <footer>
+        <Footer />
+      </footer>
     </section>
   );
 };

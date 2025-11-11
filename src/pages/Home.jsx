@@ -5,6 +5,7 @@ import FoodCard from "../components/foodCard/FoodCard";
 import MyButton from "../components/button/MyButton";
 import About from "../components/about/About";
 import HowItWorks from "../components/how steps/HowItWorks";
+import Testimonials from "../components/testimonials/Testimonials";
 
 const Home = () => {
   const foodsData = useLoaderData();
@@ -51,6 +52,11 @@ const Home = () => {
       <section>
         <Container>
           <HowItWorks />
+        </Container>
+      </section>
+      <section>
+        <Container>
+          <Testimonials />
         </Container>
       </section>
     </div>

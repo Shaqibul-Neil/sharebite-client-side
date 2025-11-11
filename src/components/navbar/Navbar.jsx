@@ -85,7 +85,7 @@ const Navbar = () => {
             className="flex items-center gap-1 md:text-2xl text-xl font-bold"
           >
             <HeartHandshake size={24} className="text-warning" />
-            <span className="text-accent">
+            <span className="text-accent font-extrabold leading-tight">
               Share
               <span className="text-amber-500 top-1 relative">Bite</span>
             </span>

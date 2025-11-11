@@ -20,6 +20,19 @@
 a.active {
   color: #f57c00;
 }
+.slide-in {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  transition: all 0.7s ease;
+}
+.swiper-button-prev,
+.swiper-button-next {
+  color: #f57c00 !important ;
+}
+/* optional: smooth default transition for all slides */
+.swiper-slide div {
+  transition: all 0.7s ease;
+}
 /* --color-secondary: #FDE7B3; 
 Accent (highlight / icon / badge / small attention)
 --color-accent: #FFC50F;

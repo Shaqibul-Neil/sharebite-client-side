@@ -7,7 +7,11 @@ const HowItWorks = () => {
   return (
     <section className="pb-24">
       {/* Section Title */}
-      <div className="max-w-6xl mx-auto text-center mb-16">
+      <div className="max-w-6xl mx-auto text-center mb-16 space-y-4">
+        <p className="bg-orange-100 text-warning text-xs font-semibold px-3 py-1 rounded-full text-center uppercase tracking-wider w-36 mx-auto">
+          Getting Started
+        </p>
+
         <h2 className="text-3xl sm:text-4xl font-extrabold text-accent leading-tight text-center">
           How It <span className="text-warning">Works</span>
         </h2>
@@ -18,10 +22,10 @@ const HowItWorks = () => {
       </div>
 
       {/* Steps */}
-      <div className="flex flex-col lg:gap-y-10 md:gap-y-20 gap-y-12 relative">
+      <div className="flex flex-col md:gap-y-10 gap-y-12 relative">
         {/* Step 1 */}
         <div
-          className="flex flex-col md:flex-row items-center md:items-start lg:ml-16 transition-all duration-300 lg:w-1/2 rounded-md relative z-50 bg-amber-100 p-3"
+          className="flex flex-col md:flex-row items-center md:items-start lg:ml-16 transition-all duration-300 lg:w-1/2 rounded-md relative z-50 bg-amber-50 p-3"
           data-aos="fade-up"
         >
           <div className="absolute hidden lg:block -right-36 top-2 w-64 h-96 border-t-[3px] border-dashed border-accent rounded-full opacity-40 z-10 rotate-45"></div>
@@ -37,7 +41,7 @@ const HowItWorks = () => {
           </div>
 
           <div className="md:ml-4 text-center md:text-left max-w-md">
-            <h3 className="text-xl md:text-2xl font-bold mb-2 text-warning">
+            <h3 className="text-xl lg:text-2xl font-bold mb-2 text-warning">
               Post Food
             </h3>
             <p className="text-gray-600 text-sm md:text-base">
@@ -49,7 +53,7 @@ const HowItWorks = () => {
 
         {/* Step 2 */}
         <div
-          className="flex flex-col md:flex-row items-center lg:ml-64 md:ml-32 transition-all duration-300 lg:w-1/2 rounded-md bg-amber-100 p-3"
+          className="flex flex-col md:flex-row items-center lg:ml-64 transition-all duration-300 lg:w-1/2 rounded-md bg-amber-50 p-3"
           data-aos="fade-up"
           data-aos-delay="150"
         >
@@ -66,7 +70,7 @@ const HowItWorks = () => {
           </div>
 
           <div className="md:ml-4 text-center md:text-left max-w-md">
-            <h3 className="text-xl md:text-2xl font-bold mb-2 text-warning">
+            <h3 className="text-xl lg:text-2xl font-bold mb-2 text-warning">
               Find Food
             </h3>
             <p className="text-gray-600 text-sm md:text-base">
@@ -78,7 +82,7 @@ const HowItWorks = () => {
 
         {/* Step 3 */}
         <div
-          className="flex flex-col md:flex-row items-center lg:ml-[440px] md:ml-64 transition-all duration-300 lg:w-1/2 rounded-md bg-amber-100 p-3"
+          className="flex flex-col md:flex-row items-center lg:ml-[440px] transition-all duration-300 lg:w-1/2 rounded-md bg-amber-50 p-3"
           data-aos="fade-up"
           data-aos-delay="300"
         >
@@ -94,7 +98,7 @@ const HowItWorks = () => {
           </div>
 
           <div className="md:ml-4 text-center md:text-left max-w-md">
-            <h3 className="text-xl md:text-2xl font-bold mb-2 text-warning">
+            <h3 className="text-xl lg:text-2xl font-bold mb-2 text-warning">
               Collect Food
             </h3>
             <p className="text-gray-600 text-sm md:text-base">

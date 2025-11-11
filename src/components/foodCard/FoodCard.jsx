@@ -60,7 +60,7 @@ const FoodCard = ({ food }) => {
         </div>
 
         {/* Actions */}
-        <div className="card-actions flex justify-between items-center">
+        <div className="card-actions flex justify-between md:items-center flex-col md:flex-row">
           {/* Donator */}
           <div className="flex items-center gap-2">
             <img
