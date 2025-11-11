@@ -1,9 +1,10 @@
-import { Link, useLoaderData } from "react-router";
+import { useLoaderData } from "react-router";
 import Banner from "../components/banner/Banner";
 import Container from "../components/container/Container";
 import FoodCard from "../components/foodCard/FoodCard";
 import MyButton from "../components/button/MyButton";
 import About from "../components/about/About";
+import HowItWorks from "../components/how steps/HowItWorks";
 
 const Home = () => {
   const foodsData = useLoaderData();
@@ -45,6 +46,11 @@ const Home = () => {
               Show All Foods
             </MyButton>
           </div>
+        </Container>
+      </section>
+      <section>
+        <Container>
+          <HowItWorks />
         </Container>
       </section>
     </div>
