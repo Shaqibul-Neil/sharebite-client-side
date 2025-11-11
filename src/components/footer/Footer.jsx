@@ -1,5 +1,6 @@
 import { Link } from "react-router";
-import { FaFacebookF, FaTwitter } from "react-icons/fa";
+import { FaFacebookF } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { TiSocialInstagram } from "react-icons/ti";
 import { HeartHandshake } from "lucide-react";
 
@@ -70,7 +71,7 @@ const Footer = () => {
             rel="noopener noreferrer"
             className="text-warning hover:scale-110 transition-transform"
           >
-            <FaTwitter size={24} />
+            <FaXTwitter size={24} />
           </a>
         </div>
 

@@ -10,7 +10,6 @@ import CommunityStats from "../components/community/CommunityStats";
 
 const Home = () => {
   const foodsData = useLoaderData();
-  console.log(foodsData);
   return (
     <div>
       <title>ShareBite - Home</title>

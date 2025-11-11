@@ -3,38 +3,47 @@ import FoodCard from "../components/foodCard/FoodCard";
 import Container from "../components/container/Container";
 import useAxios from "../hooks/useAxios";
 import EmptySearch from "../components/others/EmptySearch";
+import useAuth from "../hooks/useAuth";
+import ErrorPage from "./ErrorPage";
+import FoodCardSkeleton from "../components/others/FoodCardSkeleton";
 
 const AvailableFoods = () => {
   const [availableFoods, setAvailableFoods] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [displayedFoods, setDisplayedFoods] = useState([]);
+  const [loading, setLoading] = useState(true); // only initial fetch
+  const [isSearching, setIsSearching] = useState(false); // search button text
+  const { foodError } = useAuth();
   const axiosInstance = useAxios();
 
+  // Initial fetch
   useEffect(() => {
-    axiosInstance.get("http://localhost:5000/available-foods").then((data) => {
-      setAvailableFoods(data.data);
-      setLoading(false);
-    });
+    axiosInstance
+      .get("/available-foods")
+      .then((data) => {
+        setAvailableFoods(data.data);
+        setDisplayedFoods(data.data);
+      })
+      .catch(console.error)
+      .finally(() => setLoading(false));
   }, [axiosInstance]);
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     const searchText = e.target.search.value.trim().toLowerCase();
-    if (!searchText) {
-      axiosInstance
-        .get("http://localhost:5000/available-foods")
-        .then((data) => {
-          setAvailableFoods(data.data);
-          setLoading(false);
-        });
-    }
-    setLoading(true);
-    const filteredFoods = availableFoods.filter((food) =>
+
+    setIsSearching(true);
+
+    const filtered = availableFoods.filter((food) =>
       food.food_name.toLowerCase().includes(searchText)
     );
-    setLoading(false);
-    setAvailableFoods(filteredFoods);
+
+    // directly update displayedFoods, no skeleton
+    setDisplayedFoods(filtered);
+    setIsSearching(false);
   };
-  if (loading) return <p>Searching</p>;
+
+  if (foodError) return <ErrorPage />;
+
   return (
     <div className="my-24">
       <title>ShareBite - Available Foods</title>
@@ -42,12 +51,13 @@ const AvailableFoods = () => {
         <div className="text-3xl text-center font-bold text-accent mb-4">
           Currently Available Foods
         </div>
-        <p className=" text-center mb-10 text-primary">
+        <p className="text-center mb-10 text-primary">
           Discover a variety of freshly prepared meals shared by our generous
           community members. From wholesome vegetarian dishes to hearty
           non-vegetarian options, there's something for everyone. Browse,
           select, and enjoy nutritious food while supporting local food sharing.
         </p>
+
         <form className="mb-5 text-center" onSubmit={handleSearchSubmit}>
           <div className="relative md:w-80 w-72 mx-auto">
             <input
@@ -73,15 +83,18 @@ const AvailableFoods = () => {
               type="submit"
               className="absolute right-0 top-0 h-full px-4 myBtn"
             >
-              {loading ? "Searching" : "Search"}
+              {isSearching ? "Searching..." : "Search"}
             </button>
           </div>
         </form>
-        {availableFoods.length === 0 ? (
+
+        {loading ? (
+          <FoodCardSkeleton count={9} />
+        ) : displayedFoods.length === 0 ? (
           <EmptySearch />
         ) : (
           <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-3">
-            {availableFoods.map((food) => (
+            {displayedFoods.map((food) => (
               <FoodCard food={food} key={food._id} />
             ))}
           </div>

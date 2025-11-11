@@ -11,12 +11,14 @@ import PrivateRoutes from "./PrivateRoutes";
 import FoodDetails from "../pages/FoodDetails";
 import UpdateMyFood from "../pages/UpdateMyFood";
 import AboutUs from "../pages/AboutUs";
+import ErrorPage from "../pages/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
     hydrateFallbackElement: <p>Loading</p>,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
