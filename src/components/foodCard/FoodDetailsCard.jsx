@@ -1,154 +1,174 @@
 import { MdEmail } from "react-icons/md";
 import { MapPin, Phone } from "lucide-react";
 import { Link } from "react-router";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import "react-tabs/style/react-tabs.css";
+import SecondaryButton from "../button/SecondaryButton"; // তোমার reusable button path অনুযায়ী ঠিক করে নিও
 
 const FoodDetailsCard = ({ foodInfo }) => {
   const { food, requestModalRef, user, conditionalClass } = foodInfo;
   const filteredDate = new Date(food.expire_date).toLocaleDateString();
+
   const handleRequestModal = () => {
     requestModalRef.current.showModal();
   };
 
   return (
     <div className="max-w-6xl mx-auto p-6">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* LEFT COLUMN */}
-        <div className="flex flex-col md:flex-row lg:flex-col gap-4 md:items-center lg:items-start">
-          {/* Food Image */}
-          <figure className="rounded-lg overflow-hidden md:w-1/2 lg:w-full">
+      {/* Back link */}
+      <div className="mb-6">
+        <Link
+          to="/available-foods"
+          className="text-sm font-medium text-accent hover:text-accent transition"
+        >
+          &larr; Back to Available Foods
+        </Link>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {/* LEFT SIDE - IMAGE */}
+        <div>
+          <div className="rounded-lg overflow-hidden shadow-md">
             <img
               src={food.food_image}
               alt={food.food_name}
               className="rounded-lg w-full object-cover hover:scale-105 transition-transform duration-300"
             />
-          </figure>
-
-          {/* Food Description */}
-          <div className="bg-white p-6 rounded-xl shadow-md space-y-4">
-            <h3 className="text-xl font-bold text-accent border-b pb-2">
-              Food Description
-            </h3>
-
-            <div className="text-sm space-y-2">
-              <p>
-                <span className="font-semibold text-primary">Quantity:</span>{" "}
-                {food.food_quantity}
-              </p>
-              <p>
-                <span className="font-semibold text-primary">Expire:</span>{" "}
-                <span className="text-red-500 font-medium">{filteredDate}</span>
-              </p>
-              <p>
-                <span className="font-semibold text-primary">Notes:</span>{" "}
-                {food.additional_notes || "No notes provided"}
-              </p>
-            </div>
           </div>
         </div>
 
-        {/* RIGHT COLUMN */}
-        <div className="lg:col-span-2 space-y-6">
-          {/* Back Button */}
-          <div className="mb-6">
-            <Link
-              to="/available-foods"
-              className="text-sm font-medium text-accent hover:text-gray-600 transition"
-            >
-              &larr; Back to Available Foods
-            </Link>
-          </div>
-          {/* Food Info */}
-          <div className="bg-white p-6 rounded-xl shadow-md space-y-4">
-            <h2 className="text-3xl font-bold text-accent">
-              {food?.food_name}
-            </h2>
-            <span
-              className={`badge badge-outline ${conditionalClass(
-                food?.food_status
-              )}`}
-            >
-              {food?.food_status}
-            </span>
-            <p className="text-primary text-sm">
-              Donated by:{" "}
-              <span className="font-semibold">
-                {food.donator.name || "Anonymous"}
-              </span>
-            </p>
-          </div>
-          <div className="flex items-center md:gap-2 md:flex-row flex-col border-l-4 border-accent rounded-lg">
-            <div className="bg-white p-6 rounded-xl shadow-md space-y-4 md:w-1/2">
-              <h3 className="text-lg font-bold text-accent">Food Details</h3>
-              <div className="space-y-2">
-                <p className="text-sm text-primary">
-                  <span className="font-semibold">Food ID :</span> {food?._id}
-                </p>
-              </div>
-
-              <button className="text-primary hover:underline font-medium flex items-center gap-2">
-                <MapPin color="red" size={18} />{" "}
-                <span>View Pickup Location</span>
-              </button>
-
-              {user?.email !== food.donator.email && (
-                <button
-                  className="w-full py-2 rounded-lg myBtn text-primary font-medium transition"
-                  onClick={handleRequestModal}
-                >
-                  Request Food
-                </button>
-              )}
-            </div>
-
-            {/* Donor Info */}
-            <div className="bg-white p-6 rounded-lg shadow-md space-y-4 md:w-1/2 mt-4 md:mt-0 border-l-4 border-accent">
-              <h3 className="text-lg font-bold text-accent mb-2">
+        {/* RIGHT SIDE - TABS */}
+        <div className="bg-white px-6">
+          <Tabs>
+            <TabList className="flex gap-4 border-b border-gray-200 pb-2">
+              <Tab
+                selectedClassName="text-warning border-b-2 border-warning"
+                className="cursor-pointer py-1 font-semibold text-accent hover:text-warning focus:outline-none"
+              >
+                Food Description
+              </Tab>
+              <Tab
+                selectedClassName="text-warning border-b-2 border-warning"
+                className="cursor-pointer px-2 py-1 font-semibold text-accent hover:text-warning focus:outline-none"
+              >
                 Donor Information
-              </h3>
+              </Tab>
+            </TabList>
 
-              <div className="flex gap-4 items-center">
-                <div className="h-12 w-12 rounded-lg overflow-hidden">
-                  <img
-                    src={food.donator.image}
-                    alt={food.donator.name}
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-                <div>
-                  <p className="font-semibold text-primary">
-                    {food.donator.name || "Anonymous"}
+            {/* FOOD DESCRIPTION TAB */}
+            <TabPanel>
+              <div className="space-y-4 mt-4 text-left">
+                <h2 className="text-2xl font-bold text-accent">
+                  {food?.food_name}
+                </h2>
+                <span
+                  className={`badge badge-outline ${conditionalClass(
+                    food?.food_status
+                  )}`}
+                >
+                  {food?.food_status}
+                </span>
+
+                <div className="space-y-2 mt-2 text-gray-600">
+                  <p className="text-sm font-semibold">
+                    Quantity :{" "}
+                    <span className="font-normal">
+                      {food.food_quantity < 10
+                        ? `0${food.food_quantity}`
+                        : food.food_quantity}
+                    </span>
                   </p>
-                  <p className="text-sm text-gray-600">{food.donator.email}</p>
+                  <p className="text-sm">
+                    <span className="font-semibold">Expire :</span>{" "}
+                    <span className="text-red-500 font-medium">
+                      {filteredDate}
+                    </span>
+                  </p>
+                  <p className="text-sm font-semibold">
+                    Notes :{" "}
+                    <span className=" text-gray-600 font-normal">
+                      {food.additional_notes || "No notes provided"}
+                    </span>
+                  </p>
+                  <p className="text-sm mt-2 font-semibold">
+                    Donated by :{" "}
+                    <span className="font-normal">
+                      {food.donator.name || "Anonymous"}
+                    </span>
+                  </p>
+                  <div className="flex items-center gap-2">
+                    <MapPin color="red" size={18} />{" "}
+                    <span>{food.pickup_location}</span>
+                  </div>
+                </div>
+
+                {user?.email !== food.donator.email && (
+                  <div className="w-full mt-4">
+                    <SecondaryButton
+                      className={
+                        "w-48 bg-warning hover:bg-warning border-warning py-3"
+                      }
+                      hoverTextColor="group-hover:text-warning"
+                      onClick={handleRequestModal}
+                    >
+                      Request Food
+                    </SecondaryButton>
+                  </div>
+                )}
+              </div>
+            </TabPanel>
+
+            {/* DONOR INFORMATION TAB */}
+            <TabPanel>
+              <div className="space-y-4 mt-4 text-left">
+                <div className="flex gap-4 items-center">
+                  <div className="h-14 w-14 rounded-lg overflow-hidden">
+                    <img
+                      src={food.donator.image}
+                      alt={food.donator.name}
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-primary">
+                      {food.donator.name || "Anonymous"}
+                    </p>
+                    <p className="text-sm text-gray-600">
+                      {food.donator.email}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-3 mt-3">
+                  <SecondaryButton
+                    className="w-44 py-2 border-blue-500 text-blue-500 bg-blue-500 hover:bg-blue-500"
+                    hoverTextColor="group-hover:text-blue-500"
+                    onClick={() =>
+                      (window.location.href = `mailto:${food.donator.email}`)
+                    }
+                  >
+                    <span className="flex items-center gap-1">
+                      <MdEmail size={18} /> <span>Send Message</span>
+                    </span>
+                  </SecondaryButton>
+
+                  <SecondaryButton
+                    className="w-44 py-2 bg-success text-success border-success hover:bg-success"
+                    hoverTextColor="group-hover:text-success"
+                    onClick={() =>
+                      (window.location.href = `tel:${food.donator.phone}`)
+                    }
+                  >
+                    <span className="flex items-center gap-1">
+                      {" "}
+                      <Phone size={16} />
+                      <span>Call Donor</span>
+                    </span>
+                  </SecondaryButton>
                 </div>
               </div>
-
-              <div className="flex items-center gap-2 flex-col">
-                <button
-                  className="w-full border-2 border-accent text-accent py-1 rounded-lg flex items-center gap-2 justify-center cursor-pointer font-semibold  hover:bg-accent hover:text-white transition-all duration-300 text-md"
-                  onClick={() =>
-                    (window.location.href = `mailto:${food.donator.email}`)
-                  }
-                >
-                  <span>
-                    <MdEmail size={18} />
-                  </span>{" "}
-                  <span>Send Message</span>
-                </button>
-                <button
-                  onClick={() =>
-                    (window.location.href = `tel:${food.donator.phone}`)
-                  }
-                  className="w-full bg-accent text-white py-1 rounded-lg flex items-center gap-2 justify-center cursor-pointer border-2 hover:bg-white border-accent hover:text-accent transition-all duration-300 font-semibold text-md"
-                >
-                  {" "}
-                  <span>
-                    <Phone size={16} />
-                  </span>{" "}
-                  <span>Call Donor</span>
-                </button>
-              </div>
-            </div>
-          </div>
+            </TabPanel>
+          </Tabs>
         </div>
       </div>
     </div>

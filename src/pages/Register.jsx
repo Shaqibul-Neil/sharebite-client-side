@@ -5,12 +5,19 @@ import { Eye, EyeOff } from "lucide-react";
 import Container from "../components/container/Container";
 import { useState } from "react";
 import passwordError from "../utilities/passwordError";
+import SecondaryButton from "../components/button/SecondaryButton";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [signUpError, setSignUpError] = useState({ email: "", password: "" });
-  const { createUser, setUser, setUserLoading, googleSignIn, signOutUser } =
-    useAuth();
+  const {
+    createUser,
+    setUser,
+    setUserLoading,
+    googleSignIn,
+    signOutUser,
+    updateUser,
+  } = useAuth();
   const navigate = useNavigate();
 
   const handleSignInWithGoogle = () => {
@@ -26,6 +33,8 @@ const Register = () => {
     e.preventDefault();
     const email = e.target.email.value.trim();
     const password = e.target.password.value.trim();
+    const displayName = e.target.name.value || "";
+    const photoURL = e.target.photo.value || "";
 
     //error reset
     setSignUpError({ email: "", password: "" });
@@ -40,14 +49,18 @@ const Register = () => {
     //user creation
     createUser(email, password)
       .then(() => {
-        //signout user
-        signOutUser().then(() => {
-          setUser(null);
-          toast.success(
-            "Successfully created account. Now Login to make some donation"
-          );
-          e.target.reset();
-          navigate("/login");
+        //update profile
+        updateUser(displayName, photoURL).then(() => {
+          setUserLoading(false);
+          //signout user
+          signOutUser().then(() => {
+            setUser(null);
+            toast.success(
+              "Successfully created account. Now Login to make some donation"
+            );
+            e.target.reset();
+            navigate("/login");
+          });
         });
       })
       .catch((err) => {
@@ -155,10 +168,14 @@ const Register = () => {
                 </span>
               </div>
 
-              {/* Signup button */}
-              <button type="submit" className="myBtn w-full h-11">
-                Sign Up
-              </button>
+              {/* Register button */}
+              <SecondaryButton
+                className="w-full py-2 bg-warning text-warning border-warning hover:bg-warning"
+                type="submit"
+                hoverTextColor="group-hover:text-warning"
+              >
+                Register
+              </SecondaryButton>
             </form>
 
             {/* Divider */}

@@ -8,6 +8,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import useFood from "../hooks/useFood";
 
@@ -24,6 +25,12 @@ const AuthProvider = ({ children }) => {
   const createUser = (email, password) => {
     setUserLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
+  };
+
+  //update user
+  const updateUser = (displayName, photoURL) => {
+    setUserLoading(true);
+    return updateProfile(auth.currentUser, { displayName, photoURL });
   };
 
   //sign in user with email password
@@ -56,6 +63,7 @@ const AuthProvider = ({ children }) => {
   const authInfo = {
     createUser,
     user,
+    updateUser,
     setUser,
     userLoading,
     setUserLoading,

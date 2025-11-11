@@ -1,5 +1,6 @@
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import SecondaryButton from "../button/SecondaryButton";
 
 const RequestFoodModal = ({ foodInfo }) => {
   const {
@@ -135,19 +136,21 @@ const RequestFoodModal = ({ foodInfo }) => {
 
             {/* Buttons */}
             <div className="flex justify-end gap-3 pt-4">
-              <button
-                type="button"
+              <SecondaryButton
+                className="w-32 py-1 bg-error text-error border-error hover:error"
+                hoverTextColor="group-hover:text-error"
                 onClick={() => requestModalRef.current.close()}
-                className="w-32 rounded-md border-accent border-2 cursor-pointer text-accent font-semibold hover:bg-accent hover:text-white transition-all duration-300"
               >
                 Cancel
-              </button>
-              <button
+              </SecondaryButton>
+
+              <SecondaryButton
+                className="w-48 py-1 bg-success text-success border-success hover:success"
                 type="submit"
-                className="btn myBtn text-white w-40 rounded-md"
+                hoverTextColor="group-hover:text-success"
               >
                 Submit Request
-              </button>
+              </SecondaryButton>
             </div>
           </form>
         </div>

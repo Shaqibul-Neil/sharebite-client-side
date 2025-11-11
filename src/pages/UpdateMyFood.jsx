@@ -6,6 +6,7 @@ import Container from "../components/container/Container";
 import { useLocation } from "react-router";
 import toast from "react-hot-toast";
 import useAxiosSecure from "../hooks/useAxiosSecure";
+import SecondaryButton from "../components/button/SecondaryButton";
 
 const UpdateMyFood = () => {
   const { user, refresh, setRefresh } = useAuth();
@@ -201,13 +202,14 @@ const UpdateMyFood = () => {
             ></textarea>
           </div>
 
-          <div className="lg:col-span-3 md:col-span-2 sm:col-span-1 flex justify-end pt-4">
-            <button
+          <div className="lg:col-span-3 md:col-span-2 sm:col-span-1 flex justify-center pt-4">
+            <SecondaryButton
               type="submit"
-              className="myBtn text-accent w-full py-2 rounded-md"
+              className="w-48 py-3 bg-warning text-warning border-warning hover:bg-warning"
+              hoverTextColor="group-hover:text-warning"
             >
-              Update Information
-            </button>
+              Update Food
+            </SecondaryButton>
           </div>
         </form>
       </section>

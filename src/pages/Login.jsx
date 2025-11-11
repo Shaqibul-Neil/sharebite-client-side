@@ -4,6 +4,7 @@ import { Eye, EyeOff } from "lucide-react";
 import Container from "../components/container/Container";
 import useAuth from "../hooks/useAuth";
 import { Link, useLocation, useNavigate } from "react-router";
+import SecondaryButton from "../components/button/SecondaryButton";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -127,9 +128,15 @@ const Login = () => {
               </div>
 
               {/* Login button */}
-              <button type="submit" className="myBtn w-full h-11">
-                Login
-              </button>
+              <div className="flex justify-center">
+                <SecondaryButton
+                  className="w-full py-2 bg-warning text-warning border-warning hover:bg-warning"
+                  type="submit"
+                  hoverTextColor="group-hover:text-warning"
+                >
+                  Login
+                </SecondaryButton>
+              </div>
             </form>
 
             {/* Divider */}
