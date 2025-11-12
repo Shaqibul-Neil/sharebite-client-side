@@ -33,21 +33,6 @@ a.active {
 .swiper-slide div {
   transition: all 0.7s ease;
 }
-/* --color-secondary: #FDE7B3; 
-Accent (highlight / icon / badge / small attention)
---color-accent: #FFC50F;
-Use lightly — maybe icon hover, rating stars, or top notification.
-Think of it like sunlight in your palette — little goes a long way.
-Success (positive / confirmation / eco tone)
---color-success: #63A361;
-
-👉 Use for "Shared", "Available", "Confirmed" states, or green badges.
-
-Neutral Dark (text / footer / grounded look)
---color-dark: #5B532C;
-
-👉 Use for dark text or footer backgrounds. Keeps it organic and trustworthy.
-*/
 
 .myBtn {
   @apply bg-linear-to-r from-[#F57C00] to-[#FFB74D] text-primary rounded-lg font-bold transition-all duration-300 hover:opacity-90 hover:-translate-y-0.5 cursor-pointer;

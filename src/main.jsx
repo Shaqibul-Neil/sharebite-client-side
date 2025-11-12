@@ -1,14 +1,35 @@
-import { StrictMode } from "react";
+import { StrictMode, useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import { RouterProvider } from "react-router";
 import AuthProvider from "./context/AuthProvider";
 import router from "./routes/router";
 import { Toaster } from "react-hot-toast";
+import { PropagateLoader } from "react-spinners";
+import { motion } from "framer-motion";
 
-createRoot(document.getElementById("root")).render(
-  <StrictMode>
+const Main = () => {
+  const [spinnerOnLoad, setSpinnerOnLoad] = useState(true);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setSpinnerOnLoad(false);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
     <AuthProvider>
+      {spinnerOnLoad && (
+        <motion.div
+          className="flex justify-center items-center h-screen bg-accent"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.4 }}
+        >
+          <PropagateLoader height="120" width="120" color="#f57c00" />
+        </motion.div>
+      )}
       <RouterProvider router={router} />
       <Toaster
         position="top-right"
@@ -33,5 +54,10 @@ createRoot(document.getElementById("root")).render(
         }}
       />
     </AuthProvider>
+  );
+};
+createRoot(document.getElementById("root")).render(
+  <StrictMode>
+    <Main />
   </StrictMode>
 );
