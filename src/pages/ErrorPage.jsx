@@ -8,7 +8,7 @@ const ErrorPage = () => {
   return (
     <div>
       <title>ShareBite - 404 Error</title>
-      <header className="py-2 sticky top-0 z-50 bg-black/10 backdrop-blur-xl shadow-sm">
+      <header className="py-2 sticky top-0 z-50 bg-black backdrop-blur-xl shadow-sm">
         <Container>
           <Navbar />
         </Container>

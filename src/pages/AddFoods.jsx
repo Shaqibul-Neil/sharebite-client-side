@@ -63,6 +63,7 @@ const AddFoods = () => {
 
   return (
     <Container className="py-16 space-y-12">
+      <title>ShareBite - Add Food</title>
       {/* ---------- Heading & Info ---------- */}
       <section className="bg-gray-50 space-y-4 lg:mt-12">
         <div className="flex items-center flex-col lg:flex-row justify-center gap-3">
@@ -154,28 +155,28 @@ const AddFoods = () => {
                 name="name"
                 readOnly
                 defaultValue={user.displayName}
-                className="w-full p-2 bg-gray-100 border border-gray-300 rounded-md focus:ring-amber-600 focus:border-amber-600 focus:outline-none"
+                className="w-full py-2 px-3 bg-gray-100 border border-gray-300 rounded-3xl focus:ring-amber-600 focus:border-amber-600 focus:outline-none"
               />
               <input
                 type="email"
                 name="email"
                 readOnly
                 defaultValue={user.email}
-                className="w-full p-2 bg-gray-100 border border-gray-300 rounded-md focus:ring-amber-600 focus:border-amber-600 focus:outline-none"
+                className="w-full py-2 px-3 bg-gray-100 border border-gray-300 rounded-3xl focus:ring-amber-600 focus:border-amber-600 focus:outline-none"
               />
               <input
                 type="tel"
                 name="phone"
                 required
                 placeholder="Phone Number"
-                className="w-full p-2 bg-gray-100 border border-gray-300 rounded-md focus:ring-amber-600 focus:border-amber-600 focus:outline-none"
+                className="w-full py-2 px-3 bg-gray-100 border border-gray-300 rounded-3xl focus:ring-amber-600 focus:border-amber-600 focus:outline-none"
               />
               <input
                 type="url"
                 name="image"
                 readOnly
                 defaultValue={user.photoURL}
-                className="w-full p-2 bg-gray-100 border border-gray-300 rounded-md focus:ring-amber-600 focus:border-amber-600 focus:outline-none"
+                className="w-full py-2 px-3 bg-gray-100 border border-gray-300 rounded-3xl focus:ring-amber-600 focus:border-amber-600 focus:outline-none"
               />
             </div>
           </div>
@@ -191,7 +192,7 @@ const AddFoods = () => {
                 name="food_name"
                 required
                 placeholder="Food Name"
-                className="w-full p-2 bg-gray-100 border border-gray-300 rounded-md focus:ring-amber-600 focus:border-amber-600 focus:outline-none"
+                className="w-full py-2 px-3 bg-gray-100 border border-gray-300 rounded-3xl focus:ring-amber-600 focus:border-amber-600 focus:outline-none"
               />
               <input
                 type="url"
@@ -199,7 +200,7 @@ const AddFoods = () => {
                 required
                 placeholder="Food Image URL"
                 onChange={handleImageChange}
-                className="w-full p-2 bg-gray-100 border border-gray-300 rounded-md focus:ring-amber-600 focus:border-amber-600 focus:outline-none"
+                className="w-full py-2 px-3 bg-gray-100 border border-gray-300 rounded-3xl focus:ring-amber-600 focus:border-amber-600 focus:outline-none"
               />
               {foodPreview && (
                 <div className="md:col-span-2">
@@ -207,7 +208,7 @@ const AddFoods = () => {
                   <img
                     src={foodPreview}
                     alt="Food Preview"
-                    className="max-h-40 rounded-md border"
+                    className="max-h-40 rounded-3xl"
                   />
                 </div>
               )}
@@ -216,14 +217,14 @@ const AddFoods = () => {
                 name="food_quantity"
                 required
                 placeholder="Quantity (e.g., 10)"
-                className="w-full p-2 bg-gray-100 border border-gray-300 rounded-md focus:ring-amber-600 focus:border-amber-600 focus:outline-none"
+                className="w-full py-2 px-3 bg-gray-100 border border-gray-300 rounded-3xl focus:ring-amber-600 focus:border-amber-600 focus:outline-none"
               />
               <DatePicker
                 selected={expireDate}
                 onChange={(date) => setExpireDate(date)}
                 placeholderText="Expiry Date"
                 minDate={new Date()}
-                className="w-full p-2 bg-gray-100 border border-gray-300 rounded-md focus:ring-amber-600 focus:border-amber-600 focus:outline-none"
+                className="w-full py-2 px-3 bg-gray-100 border border-gray-300 rounded-3xl focus:ring-amber-600 focus:border-amber-600 focus:outline-none"
               />
             </div>
           </div>
@@ -239,14 +240,14 @@ const AddFoods = () => {
                 name="pickup_location"
                 required
                 placeholder="Pickup Location"
-                className="w-full p-2 bg-gray-100 border border-gray-300 rounded-md focus:ring-amber-600 focus:border-amber-600 focus:outline-none"
+                className="w-full py-2 px-3 bg-gray-100 border border-gray-300 rounded-3xl focus:ring-amber-600 focus:border-amber-600 focus:outline-none"
               />
               <textarea
                 name="additional_notes"
                 rows="4"
                 required
                 placeholder="Additional Notes"
-                className="w-full p-2 bg-gray-100 border border-gray-300 rounded-md focus:ring-amber-600 focus:border-amber-600 focus:outline-none resize-y"
+                className="w-full py-2 px-3 bg-gray-100 border border-gray-300 rounded-3xl focus:ring-amber-600 focus:border-amber-600 focus:outline-none resize-y"
               />
             </div>
           </div>

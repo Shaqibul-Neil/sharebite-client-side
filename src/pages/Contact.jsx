@@ -8,6 +8,7 @@ import Container from "../components/container/Container";
 const Contact = () => {
   return (
     <Container>
+      <title>ShareBite - Contact</title>
       <div className="max-w-6xl mx-auto py-16 space-y-12">
         {/* Heading */}
         <div className="flex items-center flex-col lg:flex-row justify-center gap-3">
@@ -35,35 +36,31 @@ const Contact = () => {
                 <input
                   type="text"
                   placeholder="First Name"
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-amber-600 focus:border-amber-600 focus:outline-none focus:ring-1"
+                  className="w-full p-3 border border-gray-300 rounded-3xl focus:ring-amber-600 focus:border-amber-600 focus:outline-none focus:ring-1"
                 />
                 <input
                   type="text"
                   placeholder="Last Name"
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-amber-600 focus:border-amber-600 focus:outline-none focus:ring-1"
+                  className="w-full p-3 border border-gray-300 rounded-3xl focus:ring-amber-600 focus:border-amber-600 focus:outline-none focus:ring-1"
                 />
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <input
                   type="email"
                   placeholder="Email"
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-amber-600 focus:border-amber-600 focus:outline-none focus:ring-1"
+                  className="w-full p-3 border border-gray-300 rounded-3xl focus:ring-amber-600 focus:border-amber-600 focus:outline-none focus:ring-1"
                 />
-                <div className="flex">
-                  <select className="shrink-0 p-3 border border-r-0 border-gray-300 rounded-l-lg bg-gray-50 focus:ring-amber-600 focus:border-amber-600">
-                    <option>+880</option>
-                  </select>
-                  <input
-                    type="tel"
-                    placeholder="Contact Number"
-                    className="w-full p-3 border border-gray-300 rounded-r-lg focus:ring-amber-600 focus:border-amber-600 focus:outline-none focus:ring-1"
-                  />
-                </div>
+
+                <input
+                  type="tel"
+                  placeholder="Contact Number"
+                  className="w-full p-3 border border-gray-300 rounded-3xl focus:ring-amber-600 focus:border-amber-600 focus:outline-none focus:ring-1"
+                />
               </div>
               <textarea
                 rows="4"
                 placeholder="Your Message"
-                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-amber-600 focus:border-amber-600 focus:outline-none focus:ring-1"
+                className="w-full p-3 border border-gray-300 rounded-3xl focus:ring-amber-600 focus:border-amber-600 focus:outline-none focus:ring-1"
               />
               <div className="text-right">
                 <SecondaryButton
@@ -84,7 +81,7 @@ const Contact = () => {
             <div className="space-y-6">
               <h3 className="text-2xl font-bold mb-4">We're here to help!</h3>
 
-              <div className="flex items-center gap-4 bg-warning bg-opacity-20 p-4 rounded-lg">
+              <div className="flex items-center gap-4 bg-warning bg-opacity-20 p-4 rounded-3xl">
                 <FiPhone className="text-3xl" />
                 <div>
                   <p className="font-semibold text-lg">Hotline</p>
@@ -92,7 +89,7 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="flex items-center gap-4 bg-warning bg-opacity-20 p-4 rounded-lg">
+              <div className="flex items-center gap-4 bg-warning bg-opacity-20 p-4 rounded-3xl">
                 <BsWhatsapp className="text-3xl" />
                 <div>
                   <p className="font-semibold text-lg">WhatsApp</p>
@@ -100,7 +97,7 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="flex items-center gap-4 bg-warning bg-opacity-20 p-4 rounded-lg">
+              <div className="flex items-center gap-4 bg-warning bg-opacity-20 p-4 rounded-3xl">
                 <FiMail className="text-3xl" />
                 <div>
                   <p className="font-semibold text-lg">Email</p>

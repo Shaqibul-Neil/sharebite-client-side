@@ -32,7 +32,7 @@ const FoodDetailsCard = ({ foodInfo }) => {
             <img
               src={food?.food_image}
               alt={food?.food_name}
-              className="rounded-lg w-full object-cover hover:scale-105 transition-transform duration-300"
+              className="rounded-3xl w-full object-cover hover:scale-105 transition-transform duration-300"
             />
           </div>
         </div>

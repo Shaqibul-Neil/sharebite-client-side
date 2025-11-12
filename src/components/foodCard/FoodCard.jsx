@@ -20,64 +20,60 @@ const FoodCard = ({ food, idx }) => {
 
   return (
     <Slide direction={direction} cascade triggerOnce>
-      <div className="card bg-base-100 lg:w-96 shadow-[20px_20px_60px_#bebebe,-20px_-20px_60px_#ffffff] mx-auto group rounded-md border border-gray-300 relative z-10 hover:scale-105 transition-transform duration-500">
+      <div className="w-full lg:w-96 bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100 mx-auto group relative z-10 hover:scale-[1.03] transition-transform duration-500">
         {/* Image */}
-        <figure className="relative overflow-hidden z-10">
+        <figure className="relative overflow-hidden">
           <img
             src={food_image}
             alt={food_name}
-            className="w-full h-56 object-cover transition-transform duration-300 group-hover:scale-105 rounded-t-md"
+            className="w-full h-56 object-cover transition-transform duration-300 group-hover:scale-105"
           />
         </figure>
-        {/* Card Body */}
-        <div className="card-body space-y-4 relative z-10">
+
+        {/* Card Content */}
+        <div className="p-5 space-y-3">
           {/* Title */}
-          <h2 className="card-title text-lg font-semibold uppercase text-accent">
+          <h2 className="text-lg font-semibold uppercase text-accent">
             {food_name}
           </h2>
 
-          {/* Details */}
-          <div className="space-y-3 text-gray-600">
-            <div className="flex justify-between flex-col md:flex-row md:items-center gap-1">
-              {/* Pickup */}
-              <div className="flex items-center gap-2">
-                <MapPin className="text-warning w-5 h-5 shrink-0" />
-                <span>{pickup_location}</span>
-              </div>
-              {/* Quantity */}
-              <div className="flex items-center gap-2">
-                <UtensilsCrossed className="text-warning w-5 h-5 shrink-0" />
-                <span>
-                  Serves{" "}
-                  {food_quantity < 10 ? `0${food_quantity}` : food_quantity}{" "}
-                  People
-                </span>
-              </div>
-            </div>
-            <p>{additional_notes}</p>
-            {/* Expire Date */}
-            <p className="text-gray-600">
-              <span className="font-semibold"> Expiry Date:</span>{" "}
-              {formattedDate}
-            </p>
+          {/* Small stats section */}
+          <div className="flex items-center justify-between text-xs font-medium text-gray-500">
+            <span className="flex items-center gap-1">
+              <Clock className="w-4 h-4 text-warning" /> Expire: {formattedDate}
+            </span>
+            <span className="flex items-center gap-1">
+              <UtensilsCrossed className="w-4 h-4 text-warning" />
+              Serves {food_quantity < 10 ? `0${food_quantity}` : food_quantity}
+            </span>
           </div>
 
-          {/* Actions */}
-          <div className="card-actions flex justify-between md:items-center flex-col md:flex-row">
-            {/* Donator */}
-            <div className="flex items-center gap-2">
-              <img
-                className="w-8 h-8 rounded-md object-cover"
-                src={donator?.image}
-                alt={donator?.name}
-              />
-              <span>{donator?.name}</span>
-            </div>
+          {/* Location */}
+          <div className="flex items-center gap-1 text-gray-600 text-sm">
+            <MapPin className="text-warning w-4 h-4" />
+            <span>{pickup_location}</span>
+          </div>
+
+          {/* Description */}
+          <p className="text-sm text-gray-500">{additional_notes}</p>
+
+          {/* Donator */}
+          <div className="flex items-center gap-3 pt-2">
+            <img
+              className="w-9 h-9 rounded-md object-cover border border-gray-200"
+              src={donator?.image}
+              alt={donator?.name}
+            />
+            <span className="text-sm font-medium">{donator?.name}</span>
+          </div>
+
+          {/* Action Button */}
+          <div className="pt-3">
             <Link
               to={`/food/${_id}`}
-              className="relative inline-flex items-center justify-start px-6 py-3 overflow-hidden font-medium transition-all bg-white rounded hover:bg-white group border border-warning"
+              className="relative inline-flex items-center justify-start px-6 py-3 overflow-hidden font-medium transition-all bg-white rounded-3xl hover:bg-white group border border-warning"
             >
-              <span className="w-48 h-48 rounded rotate-[-40deg] bg-warning absolute bottom-0 left-0 -translate-x-full ease-out duration-500 transition-all translate-y-full mb-9 ml-9 group-hover:ml-0 group-hover:mb-32 group-hover:translate-x-0"></span>
+              <span className="w-48 h-48 rounded-3xl rotate-[-40deg] bg-warning absolute bottom-0 left-0 -translate-x-full ease-out duration-500 transition-all translate-y-full mb-9 ml-9 group-hover:ml-0 group-hover:mb-32 group-hover:translate-x-0"></span>
               <span className="relative w-full text-left text-warning transition-colors duration-300 ease-in-out group-hover:text-white">
                 View Details
               </span>

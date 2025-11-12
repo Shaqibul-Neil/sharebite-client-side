@@ -175,7 +175,7 @@ const Navbar = () => {
 
                 <li>
                   <button
-                    className="btn h-8 text-left bg-warning text-white flex items-center justify-center"
+                    className="btn h-8 text-left bg-warning text-white flex items-center justify-center rounded-3xl"
                     onClick={handleSignOut}
                   >
                     <LogOut size={18} /> <span>Logout</span>

@@ -47,7 +47,7 @@ const RequestedFoodsTable = ({ foodInfo }) => {
           </p>
         </div>
 
-        <div className="overflow-x-auto bg-white p-4 rounded-lg text-accent shadow-md">
+        <div className="overflow-x-auto bg-white p-4 rounded-3xl text-accent shadow-lg">
           {requestedFoods.length === 0 ? (
             <p className="text-center py-6 text-gray-500">
               Nobody have made any food requests yet.

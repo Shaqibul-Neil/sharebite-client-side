@@ -53,6 +53,7 @@ const Login = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-white/90 lg:px-6 md:py-16 px-2 py-6">
+      <title>ShareBite - Login</title>
       <div className="flex md:flex-row flex-col w-full max-w-6xl rounded-lg overflow-hidden shadow-2xl lg:h-[90vh]">
         {/* Left side: background image */}
         <div className="lg:w-7/12 md:w-1/2 relative h-[80vh] md:h-full lg:rounded-l-lg rounded-t-lg overflow-hidden">
@@ -120,7 +121,7 @@ const Login = () => {
                   name="email"
                   onClick={() => setLoginError({ ...loginError, email: "" })}
                   placeholder="example@email.com"
-                  className="w-full p-2 bg-gray-100 border border-gray-300 rounded-md focus:ring-amber-600 focus:border-amber-600 focus:outline-none focus:ring-1"
+                  className="w-full py-2 px-3 bg-gray-100 border border-gray-300 rounded-3xl focus:ring-amber-600 focus:border-amber-600 focus:outline-none focus:ring-1"
                 />
                 {loginError.email && (
                   <p className="absolute -bottom-5 left-0 text-xs text-red-400">
@@ -138,7 +139,7 @@ const Login = () => {
                   onClick={() => setLoginError({ ...loginError, password: "" })}
                   required
                   placeholder="Password"
-                  className="w-full p-2 bg-gray-100 border border-gray-300 rounded-md focus:ring-amber-600 focus:border-amber-600 focus:outline-none focus:ring-1"
+                  className="w-full py-2 px-3 bg-gray-100 border border-gray-300 rounded-3xl focus:ring-amber-600 focus:border-amber-600 focus:outline-none focus:ring-1"
                 />
                 {loginError.password && (
                   <p className="absolute -bottom-5 left-0 text-xs text-red-400">
@@ -162,6 +163,7 @@ const Login = () => {
                 <SecondaryButton
                   className="w-full py-2 bg-warning text-warning border-warning hover:bg-warning"
                   type="submit"
+                  width="64"
                   hoverTextColor="group-hover:text-warning"
                 >
                   Login
@@ -180,7 +182,7 @@ const Login = () => {
             <button
               type="button"
               onClick={handleSignInWithGoogle}
-              className="flex items-center justify-center gap-3 bg-white text-primary px-5 py-2 rounded-lg w-full font-semibold hover:bg-gray-200 transition-all cursor-pointer text-sm border"
+              className="flex items-center justify-center gap-3 bg-white text-primary px-5 py-2 rounded-3xl w-full font-semibold hover:bg-gray-200 transition-all cursor-pointer text-sm border"
             >
               <img
                 src="https://www.svgrepo.com/show/475656/google-color.svg"

@@ -64,6 +64,7 @@ const UpdateMyFood = () => {
 
   return (
     <Container className="py-16 space-y-12">
+      <title>ShareBite - Update My Food</title>
       {/* ---------- Heading ---------- */}
       <section className="bg-gray-50 space-y-4 lg:mt-12 text-center">
         <div className="flex items-center flex-col lg:flex-row justify-center gap-3">
@@ -190,28 +191,28 @@ const UpdateMyFood = () => {
                 name="name"
                 readOnly
                 defaultValue={user.displayName}
-                className="w-full p-2 bg-gray-100 border border-gray-300 rounded-md focus:ring-amber-600 focus:border-amber-600 focus:outline-none"
+                className="w-full py-2 px-3 bg-gray-100 border border-gray-300 rounded-3xl focus:ring-amber-600 focus:border-amber-600 focus:outline-none"
               />
               <input
                 type="email"
                 name="email"
                 readOnly
                 defaultValue={user.email}
-                className="w-full p-2 bg-gray-100 border border-gray-300 rounded-md focus:ring-amber-600 focus:border-amber-600 focus:outline-none"
+                className="w-full py-2 px-3 bg-gray-100 border border-gray-300 rounded-3xl focus:ring-amber-600 focus:border-amber-600 focus:outline-none"
               />
               <input
                 type="tel"
                 name="phone"
                 readOnly
                 defaultValue={food?.donator.phone}
-                className="w-full p-2 bg-gray-100 border border-gray-300 rounded-md focus:ring-amber-600 focus:border-amber-600 focus:outline-none"
+                className="w-full py-2 px-3 bg-gray-100 border border-gray-300 rounded-3xl focus:ring-amber-600 focus:border-amber-600 focus:outline-none"
               />
               <input
                 type="url"
                 name="image"
                 readOnly
                 defaultValue={user.photoURL}
-                className="w-full p-2 bg-gray-100 border border-gray-300 rounded-md focus:ring-amber-600 focus:border-amber-600 focus:outline-none"
+                className="w-full py-2 px-3 bg-gray-100 border border-gray-300 rounded-3xl focus:ring-amber-600 focus:border-amber-600 focus:outline-none"
               />
             </div>
           </div>
@@ -228,7 +229,7 @@ const UpdateMyFood = () => {
                 defaultValue={food?.food_name}
                 placeholder="Food Name"
                 required
-                className="w-full p-2 bg-gray-100 border border-gray-300 rounded-md focus:ring-amber-600 focus:border-amber-600 focus:outline-none"
+                className="w-full py-2 px-3 bg-gray-100 border border-gray-300 rounded-3xl focus:ring-amber-600 focus:border-amber-600 focus:outline-none"
               />
               <input
                 type="url"
@@ -236,7 +237,7 @@ const UpdateMyFood = () => {
                 onChange={handleImageChange}
                 defaultValue={food?.food_image}
                 placeholder="Food Image URL"
-                className="w-full p-2 bg-gray-100 border border-gray-300 rounded-md focus:ring-amber-600 focus:border-amber-600 focus:outline-none"
+                className="w-full py-2 px-3 bg-gray-100 border border-gray-300 rounded-3xl focus:ring-amber-600 focus:border-amber-600 focus:outline-none"
               />
 
               {foodPreview && (
@@ -245,7 +246,7 @@ const UpdateMyFood = () => {
                   <img
                     src={foodPreview}
                     alt="Food Preview"
-                    className="max-h-40 rounded-md border"
+                    className="max-h-40 rounded-3xl"
                   />
                 </div>
               )}
@@ -256,7 +257,7 @@ const UpdateMyFood = () => {
                 required
                 defaultValue={food?.food_quantity}
                 placeholder="Quantity (e.g., 10)"
-                className="w-full p-2 bg-gray-100 border border-gray-300 rounded-md focus:ring-amber-600 focus:border-amber-600 focus:outline-none"
+                className="w-full py-2 px-3 bg-gray-100 border border-gray-300 rounded-3xl focus:ring-amber-600 focus:border-amber-600 focus:outline-none"
               />
               <DatePicker
                 selected={
@@ -267,7 +268,7 @@ const UpdateMyFood = () => {
                 required
                 onChange={(date) => setExpireDate(date)}
                 placeholderText="Expiry Date"
-                className="w-full p-2 bg-gray-100 border border-gray-300 rounded-md focus:ring-amber-600 focus:border-amber-600 focus:outline-none"
+                className="w-full py-2 px-3 bg-gray-100 border border-gray-300 rounded-3xl focus:ring-amber-600 focus:border-amber-600 focus:outline-none"
               />
             </div>
           </div>
@@ -284,7 +285,7 @@ const UpdateMyFood = () => {
                 name="pickup_location"
                 defaultValue={food?.pickup_location}
                 placeholder="Pickup Location"
-                className="w-full p-2 bg-gray-100 border border-gray-300 rounded-md focus:ring-amber-600 focus:border-amber-600 focus:outline-none"
+                className="w-full py-2 px-3 bg-gray-100 border border-gray-300 rounded-3xl focus:ring-amber-600 focus:border-amber-600 focus:outline-none"
               />
               <textarea
                 name="additional_notes"
@@ -292,7 +293,7 @@ const UpdateMyFood = () => {
                 required
                 defaultValue={food?.additional_notes}
                 placeholder="Additional Notes"
-                className="w-full p-2 bg-gray-100 border border-gray-300 rounded-md focus:ring-amber-600 focus:border-amber-600 focus:outline-none resize-y"
+                className="w-full p-2 bg-gray-100 border border-gray-300 rounded-3xl focus:ring-amber-600 focus:border-amber-600 focus:outline-none resize-y"
               />
             </div>
           </div>

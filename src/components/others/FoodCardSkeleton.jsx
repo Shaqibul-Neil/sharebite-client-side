@@ -4,7 +4,7 @@ const FoodCardSkeleton = ({ count = 6 }) => {
       {Array.from({ length: count }).map((_, i) => (
         <div
           key={i}
-          className="card bg-gray-100 shadow-md animate-pulse rounded-md border border-gray-300 lg:w-96 mx-auto"
+          className="card bg-gray-100 shadow-md animate-pulse rounded-3xl border border-gray-300 lg:w-96 mx-auto"
           style={{ width: "24rem" }}
         >
           {/* Image Placeholder */}
@@ -31,7 +31,7 @@ const FoodCardSkeleton = ({ count = 6 }) => {
               </div>
 
               {/* Button */}
-              <div className="h-10 bg-gray-300 rounded w-28"></div>
+              <div className="h-10 bg-gray-300 rounded-3xl w-28"></div>
             </div>
           </div>
         </div>

@@ -4,6 +4,7 @@ import Container from "../components/container/Container";
 const TermsConditions = () => {
   return (
     <Container>
+      <title>ShareBite - Terms & Conditions</title>
       <div className="max-w-4xl mx-auto py-16 space-y-12">
         {/* Heading with Icon */}
         <div className="flex md:flex-row flex-col items-center justify-center md:gap-3">

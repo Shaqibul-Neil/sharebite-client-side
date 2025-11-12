@@ -71,6 +71,7 @@ const ManageMyFoods = () => {
 
   return (
     <div className="bg-[#E9E9E9] min-h-screen py-20">
+      <title>ShareBite - Manage My Food</title>
       <Container>
         <div className="grid lg:grid-cols-3 gap-8 items-center mb-16">
           {/* LEFT SIDE */}
@@ -115,7 +116,7 @@ const ManageMyFoods = () => {
             {manageLoading ? (
               <TableSkeleton count={4} />
             ) : (
-              <div className="lg:col-span-2 overflow-x-auto bg-white p-6 rounded-lg shadow-md">
+              <div className="lg:col-span-2 overflow-x-auto bg-white p-6 rounded-3xl shadow-md">
                 {myFoods.length === 0 ? (
                   <p className="text-center py-6 text-gray-500">
                     No foods donated yet.
@@ -195,7 +196,7 @@ const ManageMyFoods = () => {
 
           {/* table for sm screen */}
 
-          <div className="md:hidden overflow-x-auto h-96 w-full p-4 bg-white rounded-lg shadow-md">
+          <div className="md:hidden overflow-x-auto h-96 w-full p-4 bg-white rounded-3xl shadow-md">
             <table className="table table-xs table-pin-rows table-pin-cols">
               <thead>
                 <tr>

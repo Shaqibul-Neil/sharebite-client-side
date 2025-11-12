@@ -9,7 +9,7 @@ const FoodDetailsCardSkeleton = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* LEFT SIDE - IMAGE */}
           <div>
-            <div className="rounded-lg overflow-hidden shadow-md h-64 bg-gray-300"></div>
+            <div className="rounded-3xl overflow-hidden shadow-md h-64 bg-gray-300"></div>
           </div>
 
           {/* RIGHT SIDE - SINGLE TAB SKELETON */}
@@ -24,7 +24,7 @@ const FoodDetailsCardSkeleton = () => {
             <div className="h-4 w-40 bg-gray-200 rounded"></div>
 
             {/* Request Button */}
-            <div className="h-10 w-48 bg-gray-300 rounded mt-4"></div>
+            <div className="h-10 w-48 bg-gray-300 rounded-3xl mt-4"></div>
           </div>
         </div>
       </div>

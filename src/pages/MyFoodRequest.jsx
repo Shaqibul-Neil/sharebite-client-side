@@ -18,7 +18,6 @@ const MyFoodRequest = () => {
   useEffect(() => {
     axiosSecureInstance.get(`/my-requests?email=${user?.email}`).then((res) => {
       setTimeout(() => {
-        //console.log(res.data);
         setMyRequests(res.data);
         setLoading(false);
       }, 1500);
@@ -38,7 +37,6 @@ const MyFoodRequest = () => {
     return table;
   }, {});
 
-  console.log(foodTable);
   const handleReqDelete = (id) => {
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
@@ -82,12 +80,11 @@ const MyFoodRequest = () => {
 
   const handleReRequest = (id) => {
     navigate(`/food/${id}`);
-    console.log(id);
-    console.log(foodTable[id]);
   };
 
   return (
     <div className="bg-[#E9E9E9] min-h-screen py-20">
+      <title>ShareBite - My Food Request</title>
       <Container>
         <div className="grid lg:grid-cols-3 gap-8 items-center mb-16">
           {/* ---------- LEFT SIDE ---------- */}
@@ -135,7 +132,7 @@ const MyFoodRequest = () => {
 
           {/* ---------- RIGHT SIDE / TABLE ---------- */}
           {/* table for md and lg screen */}
-          <div className="lg:col-span-2 overflow-x-auto bg-white p-6 rounded-lg shadow-md hidden md:block">
+          <div className="lg:col-span-2 overflow-x-auto bg-white p-6 rounded-3xl shadow-md hidden md:block">
             {loading ? (
               <TableRequestSkeleton count={3} />
             ) : myRequests.length === 0 ? (
@@ -238,7 +235,7 @@ const MyFoodRequest = () => {
           </div>
 
           {/* table for sm screen */}
-          <div className="md:hidden overflow-x-auto w-full p-4 bg-white rounded-lg shadow-md">
+          <div className="md:hidden overflow-x-auto w-full p-4 bg-white rounded-3xl shadow-md">
             <table className="table table-xs table-pin-rows table-pin-cols">
               <thead>
                 <tr>

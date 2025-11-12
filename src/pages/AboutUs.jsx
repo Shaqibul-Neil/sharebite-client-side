@@ -37,6 +37,7 @@ const AboutUs = () => {
 
   return (
     <div className="bg-gray-50 text-gray-600">
+      <title>ShareBite - About</title>
       <Container>
         <div className="mx-auto px-4 py-20">
           <div className="flex flex-col lg:flex-row items-center justify-center gap-3 mb-16 lg:mb-20">

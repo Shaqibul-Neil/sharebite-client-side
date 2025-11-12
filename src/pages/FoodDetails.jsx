@@ -51,6 +51,7 @@ const FoodDetails = () => {
   };
   return (
     <div className="bg-[#fefefe] space-y-16 py-16">
+      <title>ShareBite - Food Details</title>
       <Container>
         {/* main content */}
         {loading ? (

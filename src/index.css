@@ -42,7 +42,7 @@ a.active {
 }
 
 .myBtn {
-  @apply bg-linear-to-r from-[#F57C00] to-[#FFB74D] text-primary rounded-lg font-bold transition-all duration-300 hover:opacity-90 cursor-pointer;
+  @apply bg-linear-to-r from-[#F57C00] to-[#FFB74D] text-primary rounded-3xl font-bold transition-all duration-300 hover:opacity-90 cursor-pointer;
 }
 
 /* Initial Loader */
