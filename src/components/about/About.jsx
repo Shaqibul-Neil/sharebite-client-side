@@ -14,7 +14,7 @@ const About = () => {
             </div>
           </Slide>
           <Slide direction="up" triggerOnce>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-accent leading-tight">
+            <h2 className="text-3xl md:text-5xl font-extrabold text-accent leading-tight">
               Building a{" "}
               <span className="text-warning">Hunger-Free Community</span>
             </h2>

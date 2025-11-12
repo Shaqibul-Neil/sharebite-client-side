@@ -52,19 +52,56 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white/90 lg:p-6 p-2 py-16">
-      <div className="flex md:flex-row flex-col w-full max-w-6xl rounded-lg overflow-hidden shadow-2xl lg:h-[90vh] ">
+    <div className="min-h-screen flex items-center justify-center bg-white/90 lg:px-6 md:py-16 px-2 py-6">
+      <div className="flex md:flex-row flex-col w-full max-w-6xl rounded-lg overflow-hidden shadow-2xl lg:h-[90vh]">
         {/* Left side: background image */}
-        <div className="lg:w-7/12 md:w-1/2 relative h-[60vh] md:h-full lg:rounded-l-lg rounded-t-lg overflow-hidden">
+        <div className="lg:w-7/12 md:w-1/2 relative h-[80vh] md:h-full lg:rounded-l-lg rounded-t-lg overflow-hidden">
           <img
             src={loginpage}
             alt="Login Background"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-black/25 flex items-center justify-start px-10 lg:px-16">
-            <h1 className="text-white md:text-5xl text-3xl font-extrabold text-center md:text-left">
-              Welcome Back
+          <div className="absolute inset-0 bg-black/60 flex px-10 lg:px-16 flex-col justify-center lg:gap-6 md:gap-6">
+            <h1 className="text-white md:text-5xl text-3xl font-extrabold text-center md:text-left leading-tight">
+              <span className="text-amber-500">Welcome</span> Back
             </h1>
+
+            <p className="text-white text-md md:text-lg">
+              Let's continue spreading{" "}
+              <span className="text-amber-500 font-bold">kindness</span>. Your
+              community is waiting.
+            </p>
+
+            {/* Highlighted users */}
+            <div className="flex items-center md:flex-row flex-col justify-center lg:justify-start gap-4 mt-4">
+              {/* Avatars */}
+              <div className="flex -space-x-3">
+                <img
+                  className="lg:h-14 h-12 lg:w-14 w-12 rounded-full ring-2 ring-white"
+                  src="https://randomuser.me/api/portraits/women/65.jpg"
+                  alt="Sarah"
+                />
+                <img
+                  className="lg:h-14 h-12 lg:w-14 w-12 rounded-full ring-2 ring-white"
+                  src="https://randomuser.me/api/portraits/men/43.jpg"
+                  alt="Ahmed"
+                />
+              </div>
+              {/* Names & short description */}
+              <div className="md:text-left text-center">
+                <p className="text-md font-medium text-white">Meet</p>
+                <p className="text-lg font-bold text-amber-500">
+                  Sarah & Ahmed
+                </p>
+                <p className="text-md text-white">Sharing meals in your city</p>
+              </div>
+            </div>
+
+            {/* motivation */}
+            <p className="text-white text-sm md:text-base mt-4 md:text-left text-center">
+              <span className="text-amber-500 font-bold">Login</span> to see
+              today's opportunities to help someone nearby or get help.
+            </p>
           </div>
         </div>
 

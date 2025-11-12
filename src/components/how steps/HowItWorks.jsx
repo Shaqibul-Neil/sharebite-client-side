@@ -3,6 +3,7 @@ import findFoodImg from "../../assets/search.jpg";
 import collectFoodImg from "../../assets/delivery.jpg";
 import Reveal, { Slide } from "react-awesome-reveal";
 import { keyframes } from "@emotion/react";
+import SvgArrow from "../others/SvgArrow";
 
 // 1. Keyframes define
 const bounceSlideLeft = keyframes`
@@ -49,7 +50,7 @@ const HowItWorks = () => {
         </Slide>
 
         <Slide direction="up" triggerOnce>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-accent leading-tight text-center">
+          <h2 className="text-3xl md:text-5xl font-extrabold text-accent leading-tight text-center">
             How It <span className="text-warning">Works</span>
           </h2>
         </Slide>
@@ -66,7 +67,11 @@ const HowItWorks = () => {
         {/* Step 1 */}
         <Reveal keyframes={bounceSlideLeft} triggerOnce delay={200}>
           <div className="flex flex-col md:flex-row items-center md:items-start lg:ml-16 transition-all duration-300 lg:w-1/2 rounded-md relative z-50 bg-amber-50 p-3">
-            <div className="absolute hidden lg:block -right-36 top-2 w-64 h-96 border-t-[3px] border-dashed border-accent rounded-full opacity-40 z-10 rotate-45"></div>
+            <div className="absolute hidden lg:block right-6 top-24 -rotate-6">
+              {" "}
+              <SvgArrow />
+            </div>
+
             <div className="w-24 h-24 shrink-0 relative mb-6 md:mb-0">
               <div className="absolute -top-5 -left-5 w-9 h-9 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-md bg-warning">
                 1
@@ -92,7 +97,10 @@ const HowItWorks = () => {
         {/* Step 2 */}
         <Reveal keyframes={bounceSlideRight} triggerOnce delay={200}>
           <div className="flex flex-col md:flex-row items-center lg:ml-64 transition-all duration-300 lg:w-1/2 rounded-md bg-amber-50 p-3">
-            <div className="absolute hidden lg:block right-50 top-4 w-64 h-96 border-t-[3px] border-dashed border-accent rounded-full opacity-40 z-10 rotate-45"></div>
+            <div className="absolute hidden lg:block right-90 top-24 -rotate-6">
+              {" "}
+              <SvgArrow />
+            </div>
             <div className="w-24 h-24 shrink-0 relative mb-6 md:mb-0">
               <div className="absolute -top-5 -left-5 w-9 h-9 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-md bg-warning">
                 2

@@ -237,7 +237,7 @@ a.active {
 }
 
 /* shapes */
-.abstract_1 {
+/* .abstract_1 {
   fill: #f57c00;
   height: 35px;
   width: 35px;
@@ -254,4 +254,4 @@ a.active {
   100% {
     transform: rotate(360deg);
   }
-}
+} */

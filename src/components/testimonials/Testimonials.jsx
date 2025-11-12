@@ -42,7 +42,7 @@ const Testimonials = () => {
             </p>
           </Slide>
           <Slide direction="up" triggerOnce>
-            <h2 className="text-3xl md:text-4xl font-extrabold leading-tight text-gray-900">
+            <h2 className="text-3xl md:text-5xl font-extrabold leading-tight text-accent">
               What People Say <br />
               <span className="text-orange-500">About Us</span>
             </h2>

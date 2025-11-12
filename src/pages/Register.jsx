@@ -6,6 +6,7 @@ import Container from "../components/container/Container";
 import { useState } from "react";
 import passwordError from "../utilities/passwordError";
 import SecondaryButton from "../components/button/SecondaryButton";
+import registerpage from "../assets/registrationpage.jpg"; // optional background image
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -29,6 +30,7 @@ const Register = () => {
       })
       .catch((err) => toast.error(err.message));
   };
+
   const handleSignUp = (e) => {
     e.preventDefault();
     const email = e.target.email.value.trim();
@@ -36,23 +38,19 @@ const Register = () => {
     const displayName = e.target.name.value || "";
     const photoURL = e.target.photo.value || "";
 
-    //error reset
     setSignUpError({ email: "", password: "" });
 
-    //password validation
     const regEx = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
     const passwordCheck = passwordError(regEx, password);
     if (passwordCheck) {
       setSignUpError({ password: passwordCheck });
       return;
     }
-    //user creation
+
     createUser(email, password)
       .then(() => {
-        //update profile
         updateUser(displayName, photoURL).then(() => {
           setUserLoading(false);
-          //signout user
           signOutUser().then(() => {
             setUser(null);
             toast.success(
@@ -73,56 +71,96 @@ const Register = () => {
   };
 
   return (
-    <div>
-      <title>ShareBite - Register</title>
-      {/* Content */}
-      <Container>
-        <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-10 py-12">
-          {/* Left side: welcoming text */}
-          <div className="max-w-lg text-center space-y-8 lg:text-left drop-shadow-lg">
-            <h1 className="md:text-5xl text-3xl font-extrabold text-accent">
-              Join ShareBite Today
+    <div className="min-h-screen flex items-center justify-center bg-white/90 lg:px-6 md:py-16 px-2 py-6">
+      <div className="flex w-full max-w-6xl rounded-lg overflow-hidden shadow-2xl lg:h-[90vh] md:flex-row flex-col lg:gap-6 py-8 lg:pb-12">
+        {/* Left side: background image */}
+        <div className="lg:w-7/12 md:w-1/2 relative h-[60vh] md:h-full lg:rounded-l-lg rounded-t-lg overflow-hidden">
+          <img
+            src={registerpage}
+            alt="Register Background"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/65 flex px-10 lg:px-16 flex-col justify-center lg:gap-6 md:gap-6">
+            <h1 className="text-warning md:text-5xl text-3xl font-extrabold text-center md:text-left leading-tight">
+              Join <span className="text-white/90">Share</span>
+              Bite Today
             </h1>
-            <p className="md:text-lg text-primary">
-              Be part of a community that shares food, spreads love, and reduces
-              waste. Give your surplus meals a new purpose — because every bite
-              counts. Start your journey with ShareBite and make a real impact,
-              one plate at a time.
-            </p>
-          </div>
+            <div className="flex flex-col gap-3">
+              <div className="flex gap-3 md:gap-1 flex-col md:flex-row items-center">
+                {/* User images stack */}
+                <div className="flex -space-x-3">
+                  <img
+                    src="https://randomuser.me/api/portraits/women/68.jpg"
+                    alt="user1"
+                    className="w-10 h-10 rounded-full border-2 border-white"
+                  />
+                  <img
+                    src="https://randomuser.me/api/portraits/men/12.jpg"
+                    alt="user2"
+                    className="w-10 h-10 rounded-full border-2 border-white"
+                  />
+                  <img
+                    src="https://randomuser.me/api/portraits/women/44.jpg"
+                    alt="user3"
+                    className="w-10 h-10 rounded-full border-2 border-white"
+                  />
+                </div>
+                <p className="text-white text-md font-medium text-center md:text-left">
+                  <span className="text-amber-600 text-lg font-bold">10k+</span>{" "}
+                  users already joined
+                </p>
+              </div>
 
-          {/* Right side: Signup card */}
-          <div className="w-full max-w-md backdrop-blur-2xl space-y-8 bg-white/15 border border-white/25 shadow-2xl rounded-2xl p-8">
+              {/* Optional extra stats */}
+              <div className="flex items-center gap-4 text-white text-sm text-center md:text-left">
+                <div className="flex flex-col">
+                  <span className="font-bold text-lg text-amber-600">
+                    125000+
+                  </span>
+                  <span>Meals Donated</span>
+                </div>
+                <div className="flex flex-col">
+                  <span className="font-bold text-lg text-amber-600">56+</span>
+                  <span>Communities Served</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Right side: signup form */}
+        <div className="lg:w-5/12 md:w-1/2 flex items-center justify-center bg-white/15 backdrop-blur-md lg:p-10 p-3 mt-12 md:mt-0">
+          <div className="w-full space-y-8">
             <h2 className="text-2xl font-semibold text-center text-accent">
               Create Account
             </h2>
 
             <form className="space-y-5" onSubmit={handleSignUp}>
-              {/* Name */}
-              <div className="relative mb-7">
-                <label className="block text-primary mb-1 ">Full Name</label>
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Your full name"
-                  className="w-full p-2 bg-gray-100 border border-gray-300 rounded-md focus:ring-amber-600 focus:border-amber-600 focus:outline-none focus:ring-1"
-                />
-              </div>
-
-              {/* Photo URL */}
-              <div className="relative mb-7">
-                <label className="block text-primary mb-1 ">Photo URL</label>
-                <input
-                  type="text"
-                  name="photo"
-                  placeholder="Paste your photo link"
-                  className="w-full p-2 bg-gray-100 border border-gray-300 rounded-md focus:ring-amber-600 focus:border-amber-600 focus:outline-none focus:ring-1"
-                />
+              {/* Name & Photo side by side */}
+              <div className="flex lg:flex-row flex-col gap-4">
+                <div className="flex-1 relative">
+                  <label className="block text-primary mb-1">Full Name</label>
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Your full name"
+                    className="w-full p-2 bg-gray-100 border border-gray-300 rounded-md focus:ring-amber-600 focus:border-amber-600 focus:outline-none focus:ring-1"
+                  />
+                </div>
+                <div className="flex-1 relative">
+                  <label className="block text-primary mb-1">Photo URL</label>
+                  <input
+                    type="text"
+                    name="photo"
+                    placeholder="Paste your photo link"
+                    className="w-full p-2 bg-gray-100 border border-gray-300 rounded-md focus:ring-amber-600 focus:border-amber-600 focus:outline-none focus:ring-1"
+                  />
+                </div>
               </div>
 
               {/* Email */}
-              <div className="relative mb-7">
-                <label className="block text-primary mb-1 ">Email *</label>
+              <div className="relative">
+                <label className="block text-primary mb-1">Email *</label>
                 <input
                   type="email"
                   name="email"
@@ -139,8 +177,8 @@ const Register = () => {
               </div>
 
               {/* Password */}
-              <div className="relative mb-7">
-                <label className="block text-primary mb-1 ">Password *</label>
+              <div className="relative">
+                <label className="block text-primary mb-1">Password *</label>
                 <input
                   type={showPassword ? "text" : "password"}
                   name="password"
@@ -208,7 +246,7 @@ const Register = () => {
             </p>
           </div>
         </div>
-      </Container>
+      </div>
     </div>
   );
 };

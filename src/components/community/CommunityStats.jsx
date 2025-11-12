@@ -1,67 +1,76 @@
-import { useInView } from "react-intersection-observer";
-import SlotCounter from "react-slot-counter";
 import Container from "../container/Container";
 
 const CommunityStats = () => {
-  const { ref, inView } = useInView({
-    triggerOnce: false, // only trigger once
-    threshold: 0.3,
-  });
-
   return (
-    <section
-      ref={ref}
-      className="bg-linear-to-r from-[#f57b00] to-[#FFB74D] text-white lg:py-16 py-12 px-4"
-    >
-      <h3 className="lg:text-5xl md:text-3xl text-2xl font-semibold text-center lg:mb-12 mb-10 leading-snug">
-        Making a Difference, One Meal at a Time
-      </h3>
+    <section className="relative py-20 px-4 md:px-8 lg:px-16 bg-gradient-to-b from-[#fff8f0] to-[#fff3e0] text-center overflow-hidden">
+      {/* Background faded circle */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div
+          className="w-[600px] h-[600px] bg-amber-100 rounded-full opacity-20 filter blur-3xl"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle, #fff3e0, transparent 70%)",
+            transform: "scale(1.2)",
+          }}
+        ></div>
+      </div>
 
+      {/* Content */}
       <Container>
-        <div className="flex md:flex-row flex-col items-center md:gap-12 gap-8 justify-center text-center">
-          {/* Total Meals Shared */}
-          <div className="bg-white/20 backdrop-blur-md rounded-xl py-8 px-6 flex-1 hover:scale-105 transition-transform duration-500">
-            <p className="text-sm md:text-base mb-2 font-medium text-accent">
-              Total Meals Shared
-            </p>
-            <h2 className="lg:text-6xl md:text-4xl text-3xl font-extrabold text-accent">
-              {inView && (
-                <SlotCounter key={inView ? "meals" : "0"} value={125000} />
-              )}
-            </h2>
-            <p className="text-xs md:text-sm mt-2 text-accent">
-              15% more than last month
-            </p>
-          </div>
+        <div className="relative z-10 max-w-4xl mx-auto">
+          {/* Section Title */}
+          <h3 className="text-xs font-semibold uppercase tracking-wider text-amber-600 mb-3">
+            Community Impact
+          </h3>
 
-          {/* Total Donors */}
-          <div className="bg-white/20 backdrop-blur-md rounded-xl py-8 px-6 flex-1 hover:scale-105 transition-transform duration-500">
-            <p className="text-sm md:text-base mb-2 font-medium text-accent">
-              Total Donors
-            </p>
-            <h2 className="lg:text-6xl md:text-4xl text-3xl font-extrabold text-accent">
-              {inView && (
-                <SlotCounter key={inView ? "donors" : "0"} value={3400} />
-              )}
-            </h2>
-            <p className="text-xs md:text-sm mt-2 text-accent">
-              Helping communities grow
-            </p>
-          </div>
+          {/* Description */}
+          <p className="text-xl md:text-2xl lg:text-3xl font-semibold text-accent leading-relaxed max-w-4xl mx-auto md:mb-32 mb-16">
+            ShareBite is transforming how communities share food. Together, we
+            reduce waste, feed those in need, and inspire kindness every day.
+            Join thousands of active users making a real difference.
+          </p>
 
-          {/* Active Communities */}
-          <div className="bg-white/20 backdrop-blur-md rounded-xl py-8 px-6 flex-1 hover:scale-105 transition-transform duration-500">
-            <p className="text-sm md:text-base mb-2 font-medium text-accent">
-              Active Communities
-            </p>
-            <h2 className="lg:text-6xl md:text-4xl text-3xl font-extrabold text-accent">
-              {inView && (
-                <SlotCounter key={inView ? "communities" : "0"} value={56} />
-              )}
-            </h2>
-            <p className="text-xs md:text-sm mt-2 text-accent">
-              More joining every week
-            </p>
+          {/* Metrics Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
+            {/* Card 1: Total Meals Shared */}
+            <div className="bg-amber-50 lg:p-8 md:p-4 rounded-3xl shadow-xl flex flex-col items-center justify-center min-h-[220px] hover:scale-105 transition-transform duration-500">
+              <h4 className="text-5xl lg:text-6xl font-extrabold text-amber-600 mb-4">
+                125K+
+              </h4>
+              <p className="text-sm uppercase tracking-wider font-medium text-amber-700 mb-4">
+                Meals Shared
+              </p>
+              <p className="text-xs text-amber-800 max-w-[180px]">
+                Over 15% growth from last month, feeding more families daily.
+              </p>
+            </div>
+
+            {/* Card 2: Active Donors */}
+            <div className="bg-amber-50 lg:p-8 md:p-4 rounded-3xl shadow-xl flex flex-col items-center justify-center min-h-[220px] hover:scale-105 transition-transform duration-500 md:-translate-y-20">
+              <h4 className="text-5xl lg:text-6xl font-extrabold text-amber-600 mb-4">
+                3.4K
+              </h4>
+              <p className="text-sm uppercase tracking-wider font-medium text-amber-700 mb-4">
+                Active Donors
+              </p>
+              <p className="text-xs text-amber-800 max-w-[180px]">
+                Users actively contributing to their local communities.
+              </p>
+            </div>
+
+            {/* Card 3: Communities Served */}
+            <div className="bg-amber-50 lg:p-8 md:p-4 rounded-3xl shadow-xl flex flex-col items-center justify-center min-h-[220px] hover:scale-105 transition-transform duration-500">
+              <h4 className="text-5xl lg:text-6xl font-extrabold text-amber-600 mb-4">
+                56+
+              </h4>
+              <p className="text-sm uppercase tracking-wider font-medium text-amber-700 mb-4">
+                Communities Served
+              </p>
+              <p className="text-xs text-amber-800 max-w-[180px]">
+                Our reach is growing weekly as more neighborhoods join the
+                movement.
+              </p>
+            </div>
           </div>
         </div>
       </Container>

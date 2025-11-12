@@ -10,6 +10,7 @@ import CommunityStats from "../components/community/CommunityStats";
 import useAuth from "../hooks/useAuth";
 import FoodCardSkeleton from "../components/others/FoodCardSkeleton";
 import { Slide } from "react-awesome-reveal";
+import ShareKindSection from "../components/others/ShareKindSection";
 
 const Home = () => {
   const { foodLoading } = useAuth();
@@ -21,7 +22,7 @@ const Home = () => {
       <section>
         <About />
       </section>
-      <section className="py-20 lg:pb-28 md:py-20 lg:pt-0">
+      <section className="lg:pb-12 md:pb-4 lg:pt-0 md:pt-16 pt-24 pb-16">
         <Container>
           <div className="space-y-4">
             <Slide direction="up" triggerOnce>
@@ -30,7 +31,7 @@ const Home = () => {
               </p>
             </Slide>
             <Slide direction="up" triggerOnce>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-accent leading-tight text-center">
+              <h2 className="text-3xl md:text-5xl font-extrabold text-accent leading-tight text-center">
                 Shared with <span className="text-warning">Generosity</span>
               </h2>
             </Slide>
@@ -45,7 +46,7 @@ const Home = () => {
               </p>
             </Slide>
           </div>
-          <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-3 my-10">
+          <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 my-10">
             {foodLoading ? (
               <FoodCardSkeleton />
             ) : (
@@ -64,6 +65,9 @@ const Home = () => {
             </MyButton>
           </div>
         </Container>
+      </section>
+      <section>
+        <ShareKindSection />
       </section>
       <section>
         <Container>
