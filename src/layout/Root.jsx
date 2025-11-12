@@ -5,13 +5,13 @@ import Footer from "../components/footer/Footer";
 
 const Root = () => {
   return (
-    <section className="flex flex-col min-h-screen">
-      <header className="py-2 sticky top-0 z-50 bg-black/10 backdrop-blur-xl shadow-sm">
+    <section>
+      <header className="py-2 sticky top-0 z-50 bg-black backdrop-blur-xl shadow-sm">
         <Container>
           <Navbar />
         </Container>
       </header>
-      <main className="flex-1">
+      <main>
         <Outlet />
       </main>
       <footer>

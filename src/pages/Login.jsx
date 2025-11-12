@@ -5,6 +5,7 @@ import Container from "../components/container/Container";
 import useAuth from "../hooks/useAuth";
 import { Link, useLocation, useNavigate } from "react-router";
 import SecondaryButton from "../components/button/SecondaryButton";
+import loginpage from "../assets/loginpage.jpg";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -22,23 +23,19 @@ const Login = () => {
       })
       .catch((err) => toast.error(err.message));
   };
+
   const handleLogin = (e) => {
     e.preventDefault();
     const email = e.target.email.value.trim();
     const password = e.target.password.value.trim();
-    //error reset
     setLoginError({ email: "", password: "" });
-    //validation
+
     if (!email) {
-      return setLoginError({
-        email: "Please Enter your e-mail to proceed",
-      });
+      return setLoginError({ email: "Please Enter your e-mail to proceed" });
     }
     if (password.length < 6)
-      return setLoginError({
-        password: "Password is Weak",
-      });
-    //log in user
+      return setLoginError({ password: "Password is Weak" });
+
     signInUser(email, password)
       .then((res) => {
         setUser(res.user);
@@ -47,37 +44,33 @@ const Login = () => {
       })
       .catch((err) => {
         if (err.code === "auth/invalid-credential") {
-          setLoginError({
-            password: "Access denied! Wrong credentials",
-          });
+          setLoginError({ password: "Access denied! Wrong credentials" });
           return;
         }
         toast.error(err.message);
       });
   };
+
   return (
-    <div>
-      {" "}
-      <title>ShareBite - Login</title>
-      {/* Content */}
-      <Container>
-        <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-10 py-12">
-          {/* Left side: welcoming text */}
-          <div className="max-w-lg text-center space-y-8 lg:text-left drop-shadow-lg">
-            <h1 className="md:text-5xl text-3xl font-extrabold text-accent">
+    <div className="min-h-screen flex items-center justify-center bg-white/90 lg:p-6 p-2 py-16">
+      <div className="flex md:flex-row flex-col w-full max-w-6xl rounded-lg overflow-hidden shadow-2xl lg:h-[90vh] ">
+        {/* Left side: background image */}
+        <div className="lg:w-7/12 md:w-1/2 relative h-[60vh] md:h-full lg:rounded-l-lg rounded-t-lg overflow-hidden">
+          <img
+            src={loginpage}
+            alt="Login Background"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/25 flex items-center justify-start px-10 lg:px-16">
+            <h1 className="text-white md:text-5xl text-3xl font-extrabold text-center md:text-left">
               Welcome Back
             </h1>
-            <p className="md:text-lg text-primary">
-              Join the movement of sharing kindness through food with ShareBite.
-              Give your extra meals a new purpose and brighten someone's day.
-              Connect with your community, reduce waste, and spread love — one
-              plate at a time. The table is set, and your next act of kindness
-              begins right here.
-            </p>
           </div>
+        </div>
 
-          {/* Right side: Login card */}
-          <div className="w-full max-w-md backdrop-blur-2xl space-y-8 bg-white/15 border border-white/25 shadow-2xl rounded-2xl p-8">
+        {/* Right side: login form */}
+        <div className="lg:w-5/12 md:w-1/2 flex items-center justify-center bg-white/15 backdrop-blur-md lg:p-10 p-3 mt-12 lg:mt-0">
+          <div className="w-full space-y-8">
             <h2 className="text-2xl font-semibold text-center text-accent">
               Login
             </h2>
@@ -116,7 +109,7 @@ const Login = () => {
                   </p>
                 )}
                 <span
-                  className="absolute top-10 right-5 cursor-pointer z-30"
+                  className="absolute top-10 right-3 cursor-pointer z-30"
                   onClick={() => setShowPassword(!showPassword)}
                 >
                   {showPassword ? (
@@ -169,7 +162,7 @@ const Login = () => {
             </p>
           </div>
         </div>
-      </Container>
+      </div>
     </div>
   );
 };

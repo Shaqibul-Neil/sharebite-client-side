@@ -5,9 +5,7 @@ const MyLinks = ({ to, children, className }) => {
     <NavLink
       to={to}
       className={({ isActive }) =>
-        `flex items-center justify-center  ${
-          isActive ? "text-warning justify-center" : `${className}`
-        }`
+        `${isActive ? "text-warning" : `${className}`}`
       }
     >
       {children}

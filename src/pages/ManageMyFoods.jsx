@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import SecondaryButton from "../components/button/SecondaryButton";
 import TableSkeleton from "../components/others/TableSkeleton";
+import InfoBanner from "../components/banner/InfoBanner";
 
 const ManageMyFoods = () => {
   const { user, refresh, setRefresh } = useAuth();
@@ -71,7 +72,7 @@ const ManageMyFoods = () => {
   return (
     <div className="bg-[#E9E9E9] min-h-screen py-20">
       <Container>
-        <div className="grid lg:grid-cols-3 gap-8 items-center">
+        <div className="grid lg:grid-cols-3 gap-8 items-center mb-16">
           {/* LEFT SIDE */}
           <div className="space-y-6 col-span-1">
             <h2 className="text-3xl font-bold text-accent">
@@ -260,6 +261,7 @@ const ManageMyFoods = () => {
             </table>
           </div>
         </div>
+        <InfoBanner text={"Having issues managing your food"} />
       </Container>
     </div>
   );

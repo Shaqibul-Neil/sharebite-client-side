@@ -39,7 +39,7 @@ const Navbar = () => {
                 className="h-5 w-5"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke="currentColor"
+                stroke="#f57c00"
               >
                 {" "}
                 <path
@@ -85,14 +85,14 @@ const Navbar = () => {
             className="flex items-center gap-1 md:text-2xl text-xl font-bold"
           >
             <HeartHandshake size={24} className="text-warning" />
-            <span className="text-accent font-extrabold leading-tight">
+            <span className="text-white/90 font-extrabold leading-tight">
               Share
-              <span className="text-amber-500 top-1 relative">Bite</span>
+              <span className="text-amber-600 top-1 relative">Bite</span>
             </span>
           </Link>
         </div>
         <div className="navbar-center hidden md:flex">
-          <ul className="flex items-center gap-6 text-accent">
+          <ul className="flex items-center gap-6 text-white/90">
             <li>
               <MyLinks
                 to={"/"}
@@ -142,14 +142,14 @@ const Navbar = () => {
                 tabIndex="-1"
                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow space-y-1"
               >
-                <div className="pb-3 border-b border-b-amber-600 text-center space-y-1">
+                <div className="pb-3 border-b border-b-amber-600 space-y-1 text-left">
                   <li className="text-sm font-bold">{user.displayName}</li>
                   <li className="text-xs">{user.email}</li>
                 </div>
                 <li>
                   <MyLinks
                     to={"/add-foods"}
-                    className="hover:text-warning transition-all duration-300 flex items-center justify-center"
+                    className="hover:text-warning transition-all duration-300 flex items-center"
                   >
                     <SquarePlus size={18} />
                     <span>Add Foods</span>
@@ -158,7 +158,7 @@ const Navbar = () => {
                 <li>
                   <MyLinks
                     to={"/manage-my-foods"}
-                    className="hover:text-warning transition-all duration-300 flex items-center justify-center"
+                    className="hover:text-warning transition-all duration-300 flex items-center"
                   >
                     <PackageSearch size={18} /> <span>Manage My Foods</span>
                   </MyLinks>
@@ -166,7 +166,7 @@ const Navbar = () => {
                 <li>
                   <MyLinks
                     to={"/my-food-request"}
-                    className="hover:text-warning transition-all duration-300 flex items-center justify-center"
+                    className="hover:text-warning transition-all duration-300 flex items-center"
                   >
                     <HandHelping size={18} />
                     <span> My Food Requests</span>

@@ -6,6 +6,7 @@ import useAxiosSecure from "../hooks/useAxiosSecure";
 import SecondaryButton from "../components/button/SecondaryButton";
 import TableRequestSkeleton from "../components/others/TableRequestSkeleton";
 import { useNavigate } from "react-router";
+import InfoBanner from "../components/banner/InfoBanner";
 
 const MyFoodRequest = () => {
   const { user, allFoodData, refresh, setRefresh } = useAuth();
@@ -88,7 +89,7 @@ const MyFoodRequest = () => {
   return (
     <div className="bg-[#E9E9E9] min-h-screen py-20">
       <Container>
-        <div className="grid lg:grid-cols-3 gap-8 items-center">
+        <div className="grid lg:grid-cols-3 gap-8 items-center mb-16">
           {/* ---------- LEFT SIDE ---------- */}
           <div className="space-y-6 col-span-1">
             <h2 className="text-3xl font-bold text-accent">My Food Requests</h2>
@@ -323,6 +324,7 @@ const MyFoodRequest = () => {
             </table>
           </div>
         </div>
+        <InfoBanner text={"Having issues managing your food request"} />
       </Container>
     </div>
   );

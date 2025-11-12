@@ -6,14 +6,14 @@ import { HeartHandshake } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="relative w-full overflow-hidden text-white bg-black">
+    <footer className="relative w-full overflow-hidden text-white bg-linear-to-b from-amber-900 to-black">
       {/* Footer Content */}
       <div className="flex flex-col items-center justify-center text-center px-6 py-16 relative z-10 gap-6">
         {/* Logo + Title */}
         <Link to={"/"} className="flex items-center gap-2 justify-center">
           <HeartHandshake className="text-warning" size={36} />
 
-          <span className="text-accent lg:text-4xl text-2xl font-extrabold leading-tight">
+          <span className="text-white/90 lg:text-4xl text-2xl font-extrabold leading-tight">
             Share
             <span className="text-amber-600 top-1 relative">Bite</span>
           </span>

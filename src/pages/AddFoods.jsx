@@ -18,6 +18,7 @@ import {
 } from "react-icons/fa";
 import SecondaryButton from "../components/button/SecondaryButton";
 import { CheckCircle2, ListCheck, UtensilsCrossed } from "lucide-react";
+import InfoBanner from "../components/banner/InfoBanner";
 
 const AddFoods = () => {
   const [expireDate, setExpireDate] = useState(null);
@@ -122,7 +123,7 @@ const AddFoods = () => {
               <span>
                 Make sure to provide an{" "}
                 <span className="font-semibold text-accent">
-                  accurate pickup location
+                  accurate pickup location{" "}
                 </span>
                 and the{" "}
                 <span className="font-semibold text-accent">expiry date</span>{" "}
@@ -262,6 +263,7 @@ const AddFoods = () => {
           </div>
         </form>
       </section>
+      <InfoBanner text={"Need help donating"} />
     </Container>
   );
 };

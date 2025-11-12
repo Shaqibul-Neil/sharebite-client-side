@@ -64,7 +64,7 @@ const HowItWorks = () => {
       {/* Steps */}
       <div className="flex flex-col md:gap-y-10 gap-y-12 relative">
         {/* Step 1 */}
-        <Reveal keyframes={bounceSlideLeft} triggerOnce delay={500}>
+        <Reveal keyframes={bounceSlideLeft} triggerOnce delay={200}>
           <div className="flex flex-col md:flex-row items-center md:items-start lg:ml-16 transition-all duration-300 lg:w-1/2 rounded-md relative z-50 bg-amber-50 p-3">
             <div className="absolute hidden lg:block -right-36 top-2 w-64 h-96 border-t-[3px] border-dashed border-accent rounded-full opacity-40 z-10 rotate-45"></div>
             <div className="w-24 h-24 shrink-0 relative mb-6 md:mb-0">
@@ -90,9 +90,9 @@ const HowItWorks = () => {
           </div>
         </Reveal>
         {/* Step 2 */}
-        <Reveal keyframes={bounceSlideRight} triggerOnce delay={500}>
+        <Reveal keyframes={bounceSlideRight} triggerOnce delay={200}>
           <div className="flex flex-col md:flex-row items-center lg:ml-64 transition-all duration-300 lg:w-1/2 rounded-md bg-amber-50 p-3">
-            <div className="absolute hidden lg:block -right-36 top-4 w-64 h-96 border-t-[3px] border-dashed border-accent rounded-full opacity-40 z-10 rotate-45"></div>
+            <div className="absolute hidden lg:block right-50 top-4 w-64 h-96 border-t-[3px] border-dashed border-accent rounded-full opacity-40 z-10 rotate-45"></div>
             <div className="w-24 h-24 shrink-0 relative mb-6 md:mb-0">
               <div className="absolute -top-5 -left-5 w-9 h-9 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-md bg-warning">
                 2
@@ -117,7 +117,7 @@ const HowItWorks = () => {
         </Reveal>
 
         {/* Step 3 */}
-        <Reveal keyframes={bounceSlideLeft} triggerOnce delay={500}>
+        <Reveal keyframes={bounceSlideLeft} triggerOnce delay={200}>
           <div className="flex flex-col md:flex-row items-center lg:ml-[440px] transition-all duration-300 lg:w-1/2 rounded-md bg-amber-50 p-3">
             <div className="w-24 h-24 shrink-0 relative mb-6 md:mb-0">
               <div className="absolute -top-5 right-20 w-9 h-9 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-md bg-warning">

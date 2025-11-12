@@ -21,7 +21,9 @@ body,
 html {
   overflow-x: hidden;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 a.active {
   color: #f57c00;
 }
@@ -40,7 +42,7 @@ a.active {
 }
 
 .myBtn {
-  @apply bg-linear-to-r from-[#F57C00] to-[#FFB74D] text-primary rounded-lg font-bold transition-all duration-300 hover:opacity-90 hover:-translate-y-0.5 cursor-pointer;
+  @apply bg-linear-to-r from-[#F57C00] to-[#FFB74D] text-primary rounded-lg font-bold transition-all duration-300 hover:opacity-90 cursor-pointer;
 }
 
 /* Initial Loader */
@@ -231,5 +233,25 @@ a.active {
 
   100% {
     transform: translate(100%, 100%);
+  }
+}
+
+/* shapes */
+.abstract_1 {
+  fill: #f57c00;
+  height: 35px;
+  width: 35px;
+  bottom: 84%;
+  position: absolute;
+  left: 3%;
+  z-index: 9;
+  animation: 15s linear 0s infinite normal none running animationabstract1;
+}
+@keyframes animationabstract1 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

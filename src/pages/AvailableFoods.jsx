@@ -7,10 +7,10 @@ import useAuth from "../hooks/useAuth";
 import ErrorPage from "./ErrorPage";
 import FoodCardSkeleton from "../components/others/FoodCardSkeleton";
 import { FaAppleAlt, FaInfoCircle } from "react-icons/fa";
+import { MagnifyingGlass } from "react-loader-spinner";
 
 const AvailableFoods = () => {
   const [availableFoods, setAvailableFoods] = useState([]);
-  const [displayedFoods, setDisplayedFoods] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isSearching, setIsSearching] = useState(false);
   const { foodError } = useAuth();
@@ -22,7 +22,6 @@ const AvailableFoods = () => {
       setTimeout(() => {
         setAvailableFoods(data.data);
         setLoading(false);
-        //setDisplayedFoods(data.data);
       }, 1500);
     });
   }, [axiosInstance]);
@@ -30,16 +29,15 @@ const AvailableFoods = () => {
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     const searchText = e.target.search.value.trim().toLowerCase();
-
     setIsSearching(true);
 
-    const filtered = availableFoods.filter((food) =>
-      food.food_name.toLowerCase().includes(searchText)
-    );
-
-    // directly update displayedFoods, no skeleton
-    setDisplayedFoods(filtered);
-    setIsSearching(false);
+    setTimeout(() => {
+      const filtered = availableFoods.filter((food) =>
+        food.food_name.toLowerCase().includes(searchText)
+      );
+      setAvailableFoods(filtered);
+      setIsSearching(false);
+    }, 1000);
   };
 
   if (foodError) return <ErrorPage />;
@@ -94,6 +92,21 @@ const AvailableFoods = () => {
 
         {loading ? (
           <FoodCardSkeleton count={9} />
+        ) : isSearching ? (
+          <div className="flex justify-center items-center">
+            <MagnifyingGlass
+              visible={true}
+              height="120"
+              width="120"
+              ariaLabel="magnifying-glass-loading"
+              wrapperStyle={{}}
+              wrapperClass="magnifying-glass-wrapper"
+              glassColor="#fff4e6"
+              color="#f57c00"
+            />
+          </div>
+        ) : availableFoods.length === 0 ? (
+          <EmptySearch />
         ) : (
           <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-3">
             {availableFoods.map((food) => (

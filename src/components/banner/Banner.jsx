@@ -1,26 +1,14 @@
-import heroVideo from "../../assets/donate.mp4";
-import fallback from "../../assets/videofallback.jpg";
 import Container from "../container/Container";
 import MyButton from "../button/MyButton";
 import { Slide } from "react-awesome-reveal";
+import VideoSlider from "./VideoSlider";
 
 const Banner = () => {
   return (
     <section className="relative w-full h-[95vh] overflow-hidden flex items-center">
-      {/* Background Video */}
-      <video
-        className="absolute top-0 left-0 w-full h-full object-cover"
-        src={heroVideo}
-        type="video/mp4"
-        autoPlay
-        muted
-        loop
-        playsInline
-        poster={fallback}
-      />
-
+      <VideoSlider />
       {/* Dark Overlay */}
-      <div className="absolute top-0 left-0 w-full h-full bg-black/40 bg-opacity-50"></div>
+      <div className="absolute top-0 left-0 w-full h-[90vh] bg-black/40 bg-opacity-50"></div>
       <Container>
         {/* Content */}
         <div className="relative z-10 max-w-4xl text-left space-y-8 my-16">
