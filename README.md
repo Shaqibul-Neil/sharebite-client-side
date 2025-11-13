@@ -19,16 +19,12 @@
 🤝 **Volunteer & NGO Integration:** Collaborate with local organizations for wider reach. <br/>
 <br/>
 
-## Why ShareBite?
-
-<br/>
+## Why ShareBite? <br/>
 
 Because every meal shared is a story saved — and technology should make kindness effortless.
 <br/>
 
-## 🛠️ Technologies & Libraries
-
-<br/>
+## 🛠️ Technologies & Libraries <br/>
 
 🍛 React 19 – Frontend framework <br/>
 🍛 TailwindCSS + DaisyUI – Styling & UI components <br/>
@@ -71,22 +67,20 @@ Because every meal shared is a story saved — and technology should make kindne
 }
 ```
 
-## 🔐 Core Functional Flow
+## 🔐 Core Functional Flow<br/>
 
-<br/>
-
-# For Donors:
+#### For Donors:
 
 **Login → Post Food → Manage Posts → View Requests → Accept/Delete** <br/><br/>
 
-# For Requesters:
+#### For Requesters:
 
 **Browse Food → Send Request → Track Status → Cancel or Confirm** <br/><br/>
 
 Both user types get an intuitive experience with validation, animation, and instant response systems. <br/>
 
-## ❤️ Developer Notes
-
-<br/>
+## ❤️ Developer Notes <br/>
 
 This project embodies the mission of reducing food waste and feeding communities with modern tech. Every feature was crafted to balance functionality, empathy, and performance — all while ensuring smooth UX and scalability for future growth. <br/>
+
+## Live Link: <br/>
