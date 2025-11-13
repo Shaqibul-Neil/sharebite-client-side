@@ -137,7 +137,7 @@ const AddFoods = () => {
       </section>
 
       {/* ---------- Form ---------- */}
-      <section className="bg-white px-2 md:p-16 rounded-xl shadow-md space-y-8">
+      <section className="bg-white px-2 md:p-16 rounded-xl shadow-md space-y-8 py-8">
         <h3 className="text-3xl font-semibold text-center text-accent mb-8 flex items-center justify-center gap-2 md:flex-row flex-col">
           <UtensilsCrossed className="text-warning text-3xl" />{" "}
           <span>Donate Food</span>

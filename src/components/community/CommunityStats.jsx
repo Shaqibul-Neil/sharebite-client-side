@@ -3,7 +3,6 @@ import Container from "../container/Container";
 const CommunityStats = () => {
   return (
     <section className="relative py-20 px-4 md:px-8 lg:px-16 bg-linear-to-b from-[#fff8f0] to-[#fff3e0] text-center overflow-hidden">
-      {/* Background faded circle */}
       <div className="absolute inset-0 flex items-center justify-center">
         <div
           className="w-[600px] h-[600px] bg-amber-100 rounded-full opacity-20 filter blur-3xl"
@@ -29,6 +28,17 @@ const CommunityStats = () => {
             reduce waste, feed those in need, and inspire kindness every day.
             Join thousands of active users making a real difference.
           </p>
+          <div className="w-96 h-96 rounded-full bg-warning/15 absolute lg:top-40 lg:left-65 z-[-1] md:top-38 left-35 md:flex justify-center items-center hidden">
+            <div className="w-92 h-92 rounded-full bg-linear-to-b from-[#fff8f0] to-[#fff3e0] flex justify-center items-center">
+              <div className="w-80 h-80 rounded-full bg-warning/15 flex justify-center items-center">
+                <div className="w-76 h-76 rounded-full bg-linear-to-b from-[#fff8f0] to-[#fff3e0] flex justify-center items-center">
+                  <div className="w-64 h-64 rounded-full bg-warning/15 flex justify-center items-center">
+                    <div className="w-60 h-60 rounded-full bg-linear-to-b from-[#fff8f0] to-[#fff3e0]"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
           {/* Metrics Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
