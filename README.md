@@ -69,13 +69,13 @@ Because every meal shared is a story saved — and technology should make kindne
 
 ## 🔐 Core Functional Flow<br/>
 
-#### For Donors:
+### For Donors:
 
-**Login → Post Food → Manage Posts → View Requests → Accept/Delete** <br/><br/>
+**Login → Post Food → Manage Posts → View Requests → Accept/Delete** <br/>
 
-#### For Requesters:
+### For Requesters:
 
-**Browse Food → Send Request → Track Status → Cancel or Confirm** <br/><br/>
+**Browse Food → Send Request → Track Status → Cancel or Confirm** <br/>
 
 Both user types get an intuitive experience with validation, animation, and instant response systems. <br/>
 
