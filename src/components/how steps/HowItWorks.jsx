@@ -40,7 +40,7 @@ const bounceSlideRight = keyframes`
 `;
 const HowItWorks = () => {
   return (
-    <section className="pb-24">
+    <section>
       {/* Section Title */}
       <div className="max-w-6xl mx-auto text-center mb-16 space-y-4">
         <Slide direction="up" triggerOnce>

@@ -73,7 +73,7 @@ Because every meal shared is a story saved — and technology should make kindne
 
 **Login → Post Food → Manage Posts → View Requests → Accept/Delete** <br/>
 
-### For Requesters:
+### For Requestors:
 
 **Browse Food → Send Request → Track Status → Cancel or Confirm** <br/>
 

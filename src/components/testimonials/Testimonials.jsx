@@ -32,7 +32,7 @@ const Testimonials = () => {
   const slideRefs = useRef([]);
 
   return (
-    <section className="lg:pt-16 lg:pb-24 md:pb-20 pb-16">
+    <section>
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
         {/* Left Content */}
         <div className="lg:w-1/2 text-left space-y-4">

@@ -20,7 +20,7 @@ const FoodCard = ({ food, idx }) => {
 
   return (
     <Slide direction={direction} cascade triggerOnce>
-      <div className="w-full lg:w-96 bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100 mx-auto group relative z-10 hover:scale-[1.03] transition-transform duration-500">
+      <div className="w-full lg:w-96 bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100 mx-auto group relative z-10 hover:scale-105 transition-transform duration-500">
         {/* Image */}
         <figure className="relative overflow-hidden">
           <img

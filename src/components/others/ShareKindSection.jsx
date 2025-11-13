@@ -49,7 +49,7 @@ const ShareKindSection = () => {
     <div className="min-h-screen bg-white">
       {/* Main Headline & Call to Action */}
       <Container>
-        <div className="max-w-7xl mx-auto md:pt-16 lg:pb-32 md:pb-16 px-6 grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+        <div className="max-w-7xl mx-auto lg:pb-32 md:pb-16 px-6 grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
           <div className="lg:col-span-2 space-y-6">
             <Slide direction="right">
               <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-accent leading-tight">
@@ -83,7 +83,7 @@ const ShareKindSection = () => {
       </Container>
 
       {/* IMPACT Section Title and Cards */}
-      <div className="relative max-w-7xl mx-auto px-6 pt-16 lg:pb-32 md:pb-20 pb-16 md:pt-1">
+      <div className="relative max-w-7xl mx-auto px-6 pt-16 md:pt-1">
         {/* Large IMPACT Text (Overlay) */}
         <Container>
           <Slide direction="left">

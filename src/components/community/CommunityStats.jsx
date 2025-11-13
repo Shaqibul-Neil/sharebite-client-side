@@ -2,7 +2,7 @@ import Container from "../container/Container";
 
 const CommunityStats = () => {
   return (
-    <section className="relative py-20 px-4 md:px-8 lg:px-16 bg-gradient-to-b from-[#fff8f0] to-[#fff3e0] text-center overflow-hidden">
+    <section className="relative py-20 px-4 md:px-8 lg:px-16 bg-linear-to-b from-[#fff8f0] to-[#fff3e0] text-center overflow-hidden">
       {/* Background faded circle */}
       <div className="absolute inset-0 flex items-center justify-center">
         <div

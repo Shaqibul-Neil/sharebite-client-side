@@ -11,6 +11,7 @@ import useAuth from "../hooks/useAuth";
 import FoodCardSkeleton from "../components/others/FoodCardSkeleton";
 import { Slide } from "react-awesome-reveal";
 import ShareKindSection from "../components/others/ShareKindSection";
+import Newsletter from "../components/newsletter/Newsletter";
 
 const Home = () => {
   const { foodLoading } = useAuth();
@@ -18,11 +19,13 @@ const Home = () => {
   return (
     <div>
       <title>ShareBite - Home</title>
-      <Banner />
       <section>
+        <Banner />
+      </section>
+      <section className="pt-16 lg:pt-32 md:pt-20">
         <About />
       </section>
-      <section className="lg:pb-12 md:pb-4 lg:pt-0 md:pt-16 pt-24 pb-16">
+      <section className="py-16 lg:py-20 bg-yellow-50 mt-32">
         <Container>
           <div className="space-y-4">
             <Slide direction="up" triggerOnce>
@@ -66,21 +69,24 @@ const Home = () => {
           </div>
         </Container>
       </section>
-      <section>
+      <section className="lg:pt-24 md:pt-20 pt-16">
         <ShareKindSection />
       </section>
-      <section>
+      <section className="pt-16 lg:pt-32 md:pt-20">
         <Container>
           <HowItWorks />
         </Container>
       </section>
-      <section className="mb-16 lg:mb-0">
+      <section className="pt-16 lg:pt-32 md:pt-20">
         <CommunityStats />
       </section>
-      <section>
+      <section className="pt-16 lg:pt-32 md:pt-20">
         <Container>
           <Testimonials />
         </Container>
+      </section>
+      <section className="pt-16 lg:pt-20 pb-8">
+        <Newsletter />
       </section>
     </div>
   );
