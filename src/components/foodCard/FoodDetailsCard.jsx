@@ -134,7 +134,7 @@ const FoodDetailsCard = ({ foodInfo }) => {
             {/* DONOR INFORMATION TAB */}
             <TabPanel>
               <div className="space-y-4 mt-4 text-left">
-                <div className="flex gap-4 items-center">
+                <div className="flex gap-4 md:items-center flex-col md:flex-row">
                   <div className="h-14 w-14 rounded-lg overflow-hidden">
                     <img
                       src={food?.donator?.image}
