@@ -4,9 +4,12 @@ import { Link } from "react-router";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import SecondaryButton from "../button/SecondaryButton";
+import { useState } from "react";
+import FoodLocationModal from "../modal/FoodLocationModal";
 
 const FoodDetailsCard = ({ foodInfo }) => {
   const { food, requestModalRef, user, conditionalClass } = foodInfo;
+  const [isMapOpen, setIsMapOpen] = useState(false);
   const filteredDate = new Date(food.expire_date).toLocaleDateString();
 
   const handleRequestModal = () => {
@@ -96,9 +99,19 @@ const FoodDetailsCard = ({ foodInfo }) => {
                       {food?.donator?.name || "Anonymous"}
                     </span>
                   </p>
-                  <div className="flex items-center gap-2">
-                    <MapPin color="red" size={18} />{" "}
-                    <span>{food?.pickup_location}</span>
+                  <div className="flex md:items-center gap-2 flex-col md:flex-row">
+                    <div className="flex items-center gap-2">
+                      <MapPin color="red" size={18} />{" "}
+                      <span>{food?.pickup_location}</span>
+                    </div>
+                    <div>
+                      <p
+                        className="cursor-pointer text-amber-600 transition font-semibold underline"
+                        onClick={() => setIsMapOpen(true)}
+                      >
+                        View On Map
+                      </p>
+                    </div>
                   </div>
                 </div>
 
@@ -171,6 +184,12 @@ const FoodDetailsCard = ({ foodInfo }) => {
           </Tabs>
         </div>
       </div>
+      {/* Map Modal */}
+      <FoodLocationModal
+        location={food?.pickup_location}
+        isOpen={isMapOpen}
+        onClose={() => setIsMapOpen(false)}
+      />
     </div>
   );
 };
