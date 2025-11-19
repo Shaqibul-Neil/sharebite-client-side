@@ -124,12 +124,12 @@ npm install
    Create a .env file in the project root and configure any necessary environment variables. For example:
 
 ```
-VITE_apiKey= AIzaSyBEWDxo5KBQ7a-af-GNl-yPa8CqEYZZxM4
-VITE_authDomain= gamehub-57423.firebaseapp.com
-VITE_projectId= gamehub-57423
-VITE_storageBucket= gamehub-57423.firebasestorage.app
-VITE_messagingSenderId= 38307380155
-VITE_appId= 1:38307380155:web:ef70beb8140b18a6d8a29e
+VITE_apiKey= YOUR_API_KEY
+VITE_authDomain= YOUR_DOMAIN
+VITE_projectId= YOUR_PROJECTID
+VITE_storageBucket= YOUR_STORAGEBUCKET
+VITE_messagingSenderId= YOUR_MESSAGEING_SENDER_ID
+VITE_appId= YOUR_APIID
 ```
 
 3. **Run the application:**
