@@ -40,8 +40,23 @@ Because every meal shared is a story saved — and technology should make kindne
 🍛 Motion – Interactive animations <br/>
 🍛 React Loader Spinner – Loading indicators and spinners <br/>
 
-## ⚡ Dependencies
 
+### ⚡ devDependencies
+<br/>
+```json
+{
+    "@eslint/js": "^9.36.0",
+    "@types/react": "^19.1.16",
+    "@types/react-dom": "^19.1.9",
+    "@vitejs/plugin-react": "^5.0.4",
+    "eslint": "^9.36.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.22",
+    "globals": "^16.4.0",
+    "vite": "^7.1.7"
+  }
+```
+### ⚡ Dependencies
 <br/>
 
 ```json
@@ -79,6 +94,48 @@ Because every meal shared is a story saved — and technology should make kindne
 
 Both user types get an intuitive experience with validation, animation, and instant response systems. <br/>
 
+## Getting Started
+
+Follow these steps to get your project up and running:
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/Shaqibul-Neil/gamehub-client-side.git
+   ```
+
+2. **Navigate to the project folder:**
+
+```
+cd your-repository
+```
+
+3. **Install dependencies:**
+
+```
+npm install
+```
+
+4. **Configure environment variables:**
+   Create a .env file in the project root and configure any necessary environment variables. For example:
+
+```
+VITE_apiKey= AIzaSyBEWDxo5KBQ7a-af-GNl-yPa8CqEYZZxM4
+VITE_authDomain= gamehub-57423.firebaseapp.com
+VITE_projectId= gamehub-57423
+VITE_storageBucket= gamehub-57423.firebasestorage.app
+VITE_messagingSenderId= 38307380155
+VITE_appId= 1:38307380155:web:ef70beb8140b18a6d8a29e
+```
+
+3. **Run the application:**
+
+```
+npm run dev
+```
+
+Your application should now be running at http://localhost:5173.
+
 ## ❤️ Developer Notes <br/>
 
 This project embodies the mission of reducing food waste and feeding communities with modern tech. Every feature was crafted to balance functionality, empathy, and performance — all while ensuring smooth UX and scalability for future growth. <br/>
@@ -88,3 +145,10 @@ This project embodies the mission of reducing food waste and feeding communities
 ```json
 https://sharebitemeal.netlify.app/
 ```
+
+## 👨‍💻 Author
+Developed  by Shaqibul Neil
+
+## 📄 License
+© 2025 Shaqibul Neil 
+All rights reserved. You may not use, copy, modify, or distribute this project without explicit permission.
