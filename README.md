@@ -43,6 +43,7 @@ Because every meal shared is a story saved — and technology should make kindne
 
 ### ⚡ devDependencies
 <br/>
+
 ```json
 {
     "@eslint/js": "^9.36.0",
@@ -56,7 +57,10 @@ Because every meal shared is a story saved — and technology should make kindne
     "vite": "^7.1.7"
   }
 ```
+<br/>
+
 ### ⚡ Dependencies
+
 <br/>
 
 ```json
